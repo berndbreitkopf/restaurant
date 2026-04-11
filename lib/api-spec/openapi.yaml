@@ -3,13 +3,21 @@ info:
   # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: Ethiopian Restaurant API
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: menu
+    description: Menu management
+  - name: dailyMenu
+    description: Daily menu (Tageskarte)
+  - name: socialMedia
+    description: Social media posting
+  - name: gallery
+    description: Gallery management
 paths:
   /healthz:
     get:
@@ -24,6 +32,258 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  /menu:
+    get:
+      operationId: getMenuItems
+      tags: [menu]
+      summary: Get all menu items
+      responses:
+        "200":
+          description: List of menu items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/MenuItem"
+    post:
+      operationId: createMenuItem
+      tags: [menu]
+      summary: Create a menu item
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateMenuItemBody"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MenuItem"
+
+  /menu/{id}:
+    patch:
+      operationId: updateMenuItem
+      tags: [menu]
+      summary: Update a menu item
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateMenuItemBody"
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MenuItem"
+        "404":
+          description: Not found
+    delete:
+      operationId: deleteMenuItem
+      tags: [menu]
+      summary: Delete a menu item
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+        "404":
+          description: Not found
+
+  /menu/categories:
+    get:
+      operationId: getMenuCategories
+      tags: [menu]
+      summary: Get all menu categories with item counts
+      responses:
+        "200":
+          description: Categories
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/MenuCategory"
+
+  /daily-menu:
+    get:
+      operationId: getDailyMenuItems
+      tags: [dailyMenu]
+      summary: Get today's daily menu
+      parameters:
+        - name: date
+          in: query
+          required: false
+          schema:
+            type: ["string", "null"]
+      responses:
+        "200":
+          description: Daily menu items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/DailyMenuItem"
+    post:
+      operationId: createDailyMenuItem
+      tags: [dailyMenu]
+      summary: Add item to daily menu
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateDailyMenuItemBody"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DailyMenuItem"
+
+  /daily-menu/{id}:
+    delete:
+      operationId: deleteDailyMenuItem
+      tags: [dailyMenu]
+      summary: Remove item from daily menu
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+        "404":
+          description: Not found
+
+  /daily-menu/today:
+    get:
+      operationId: getTodaysDailyMenu
+      tags: [dailyMenu]
+      summary: Get today's complete daily menu summary
+      responses:
+        "200":
+          description: Today's menu
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TodaysDailyMenu"
+
+  /social-posts:
+    get:
+      operationId: getSocialPosts
+      tags: [socialMedia]
+      summary: Get all social media posts
+      responses:
+        "200":
+          description: List of posts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/SocialPost"
+    post:
+      operationId: createSocialPost
+      tags: [socialMedia]
+      summary: Create and publish a social media post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateSocialPostBody"
+      responses:
+        "201":
+          description: Created and published
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SocialPost"
+
+  /social-posts/{id}:
+    delete:
+      operationId: deleteSocialPost
+      tags: [socialMedia]
+      summary: Delete a social media post
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+        "404":
+          description: Not found
+
+  /social-posts/stats:
+    get:
+      operationId: getSocialPostStats
+      tags: [socialMedia]
+      summary: Get social media post statistics
+      responses:
+        "200":
+          description: Stats
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SocialPostStats"
+
+  /gallery:
+    get:
+      operationId: getGalleryImages
+      tags: [gallery]
+      summary: Get gallery images
+      responses:
+        "200":
+          description: Gallery images
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/GalleryImage"
+    post:
+      operationId: createGalleryImage
+      tags: [gallery]
+      summary: Add gallery image
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateGalleryImageBody"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GalleryImage"
+
 components:
   schemas:
     HealthStatus:
@@ -34,3 +294,286 @@ components:
       required:
         - status
 
+    MenuItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        nameAmharic:
+          type: ["string", "null"]
+        description:
+          type: string
+        price:
+          type: number
+        category:
+          type: string
+        isVegan:
+          type: boolean
+        isVegetarian:
+          type: boolean
+        isGlutenFree:
+          type: boolean
+        isAvailable:
+          type: boolean
+        imageUrl:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+      required:
+        - id
+        - name
+        - description
+        - price
+        - category
+        - isVegan
+        - isVegetarian
+        - isGlutenFree
+        - isAvailable
+        - createdAt
+        - updatedAt
+
+    CreateMenuItemBody:
+      type: object
+      properties:
+        name:
+          type: string
+        nameAmharic:
+          type: ["string", "null"]
+        description:
+          type: string
+        price:
+          type: number
+        category:
+          type: string
+        isVegan:
+          type: boolean
+        isVegetarian:
+          type: boolean
+        isGlutenFree:
+          type: boolean
+        isAvailable:
+          type: boolean
+        imageUrl:
+          type: ["string", "null"]
+      required:
+        - name
+        - description
+        - price
+        - category
+
+    UpdateMenuItemBody:
+      type: object
+      properties:
+        name:
+          type: ["string", "null"]
+        nameAmharic:
+          type: ["string", "null"]
+        description:
+          type: ["string", "null"]
+        price:
+          type: ["number", "null"]
+        category:
+          type: ["string", "null"]
+        isVegan:
+          type: ["boolean", "null"]
+        isVegetarian:
+          type: ["boolean", "null"]
+        isGlutenFree:
+          type: ["boolean", "null"]
+        isAvailable:
+          type: ["boolean", "null"]
+        imageUrl:
+          type: ["string", "null"]
+
+    MenuCategory:
+      type: object
+      properties:
+        category:
+          type: string
+        itemCount:
+          type: integer
+      required:
+        - category
+        - itemCount
+
+    DailyMenuItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        date:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+        isVegan:
+          type: boolean
+        isVegetarian:
+          type: boolean
+        note:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+      required:
+        - id
+        - date
+        - name
+        - description
+        - price
+        - isVegan
+        - isVegetarian
+        - createdAt
+
+    CreateDailyMenuItemBody:
+      type: object
+      properties:
+        date:
+          type: ["string", "null"]
+        name:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+        isVegan:
+          type: boolean
+        isVegetarian:
+          type: boolean
+        note:
+          type: ["string", "null"]
+      required:
+        - name
+        - description
+        - price
+
+    TodaysDailyMenu:
+      type: object
+      properties:
+        date:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/DailyMenuItem"
+        totalItems:
+          type: integer
+        veganCount:
+          type: integer
+        vegetarianCount:
+          type: integer
+      required:
+        - date
+        - items
+        - totalItems
+        - veganCount
+        - vegetarianCount
+
+    SocialPost:
+      type: object
+      properties:
+        id:
+          type: integer
+        content:
+          type: string
+        imageUrl:
+          type: ["string", "null"]
+        platforms:
+          type: array
+          items:
+            type: string
+        status:
+          type: string
+        publishedAt:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+      required:
+        - id
+        - content
+        - platforms
+        - status
+        - createdAt
+
+    CreateSocialPostBody:
+      type: object
+      properties:
+        content:
+          type: string
+        imageUrl:
+          type: ["string", "null"]
+        platforms:
+          type: array
+          items:
+            type: string
+        publishNow:
+          type: boolean
+      required:
+        - content
+        - platforms
+
+    SocialPostStats:
+      type: object
+      properties:
+        totalPosts:
+          type: integer
+        publishedPosts:
+          type: integer
+        draftPosts:
+          type: integer
+        instagramPosts:
+          type: integer
+        facebookPosts:
+          type: integer
+        tiktokPosts:
+          type: integer
+      required:
+        - totalPosts
+        - publishedPosts
+        - draftPosts
+        - instagramPosts
+        - facebookPosts
+        - tiktokPosts
+
+    GalleryImage:
+      type: object
+      properties:
+        id:
+          type: integer
+        url:
+          type: string
+        caption:
+          type: ["string", "null"]
+        category:
+          type: string
+        sortOrder:
+          type: integer
+        createdAt:
+          type: string
+      required:
+        - id
+        - url
+        - category
+        - sortOrder
+        - createdAt
+
+    CreateGalleryImageBody:
+      type: object
+      properties:
+        url:
+          type: string
+        caption:
+          type: ["string", "null"]
+        category:
+          type: string
+        sortOrder:
+          type: integer
+      required:
+        - url
+        - category

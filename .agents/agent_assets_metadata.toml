@@ -1,0 +1,50 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "HOrT-u8IUHnZ1EftdWuQk"
+uri = "file://artifacts/ethiopian-restaurant/src/assets/images/hero.png"
+type = "image"
+title = "Ethiopian feast hero image"
+
+[[generated]]
+id = "YS3z35BPfmGEwqjQw2E3J"
+uri = "file://artifacts/ethiopian-restaurant/src/assets/images/doro-wat.png"
+type = "image"
+title = "Doro Wat close up"
+
+[[generated]]
+id = "Rcm1_nn-L7gCbn0BkLxkz"
+uri = "file://artifacts/ethiopian-restaurant/src/assets/images/tibs.png"
+type = "image"
+title = "Tibs grilled beef"
+
+[[generated]]
+id = "ZEb7xNpX_JWo83Ihyu61u"
+uri = "file://artifacts/ethiopian-restaurant/src/assets/images/misir-wat.png"
+type = "image"
+title = "Misir Wat red lentils"
+
+[[generated]]
+id = "Dt__4suHCd9stu0DOFCrf"
+uri = "file://artifacts/ethiopian-restaurant/src/assets/images/habesha-platte.png"
+type = "image"
+title = "Habesha communal platter"
+
+[[generated]]
+id = "W1X1KeRNQFyrX-z2tHu5D"
+uri = "file://artifacts/ethiopian-restaurant/src/assets/images/ambiance-1.png"
+type = "image"
+title = "Restaurant interior ambiance"
+
+[[generated]]
+id = "9hQIRW8mbDQIMQMldVYBy"
+uri = "file://artifacts/ethiopian-restaurant/src/assets/images/coffee-ceremony.png"
+type = "image"
+title = "Ethiopian coffee ceremony"
+
+[[generated]]
+id = "fFfHkqTBbB_CEgfqq9Le3"
+uri = "file://artifacts/ethiopian-restaurant/src/assets/images/chef.png"
+type = "image"
+title = "Portrait of Ethiopian chef"
