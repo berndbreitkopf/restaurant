@@ -63,10 +63,9 @@ router.post("/auth/login", (req, res) => {
     return;
   }
 
-  const isValid = timingSafeEqual(
-    Buffer.from(password, "utf8"),
-    Buffer.from(adminPassword, "utf8")
-  );
+  const hmacInput = createHmac("sha256", getSecret()).update(password).digest();
+  const hmacExpected = createHmac("sha256", getSecret()).update(adminPassword).digest();
+  const isValid = timingSafeEqual(hmacInput, hmacExpected);
 
   if (!isValid) {
     res.status(401).json({ error: "Falsches Passwort" });

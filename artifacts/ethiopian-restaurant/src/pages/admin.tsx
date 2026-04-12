@@ -182,7 +182,7 @@ function DashboardAdmin({ onNavigate }: { onNavigate: (tab: AdminTab) => void })
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <StatCard label="Heutige Tagesgerichte" value={todayMenu?.totalItems ?? 0} icon={CalendarDays} color="var(--eth-green)" />
+        <StatCard label="Heutige Tagesgerichte" value={todayMenu?.totalItems ?? 0} icon={CalendarDays} color="var(--cafe-brown)" />
         <StatCard label="Aktive Events" value={events?.length ?? 0} icon={Star} color="var(--eth-yellow)" />
         <StatCard label="Social Posts gesamt" value={stats?.totalPosts ?? 0} icon={Share2} color="var(--eth-red)" />
         <StatCard label="Menü-Einträge" value={menuItems?.length ?? 0} icon={UtensilsCrossed} color="#6366f1" />
@@ -191,7 +191,7 @@ function DashboardAdmin({ onNavigate }: { onNavigate: (tab: AdminTab) => void })
       {stats && (
         <div className="bg-card border border-border rounded-2xl p-6 mb-6 shadow-sm">
           <h2 className="font-semibold mb-4 flex items-center gap-2">
-            <TrendingUp className="w-5 h-5" style={{ color: "var(--eth-green)" }} />
+            <TrendingUp className="w-5 h-5" style={{ color: "var(--cafe-brown)" }} />
             Social Media Übersicht
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -203,7 +203,7 @@ function DashboardAdmin({ onNavigate }: { onNavigate: (tab: AdminTab) => void })
               { label: "TikTok", value: stats.tiktokPosts },
             ].map(s => (
               <div key={s.label} className="text-center p-3 bg-muted rounded-xl">
-                <p className="font-bold text-xl" style={{ color: "var(--eth-green)" }}>{s.value}</p>
+                <p className="font-bold text-xl" style={{ color: "var(--cafe-brown)" }}>{s.value}</p>
                 <p className="text-xs text-muted-foreground">{s.label}</p>
               </div>
             ))}
@@ -221,7 +221,7 @@ function DashboardAdmin({ onNavigate }: { onNavigate: (tab: AdminTab) => void })
           { tab: "einstellungen" as AdminTab, icon: Settings, title: "Einstellungen", desc: "Restaurant-Infos und SEO" },
         ]).map(item => (
           <button key={item.tab} onClick={() => onNavigate(item.tab)} className="bg-card border border-border rounded-2xl p-5 text-left hover:shadow-md hover:border-primary transition-all group" data-testid={`dashboard-link-${item.tab}`}>
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white mb-3 group-hover:scale-110 transition-transform" style={{ background: "var(--eth-green)" }}>
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white mb-3 group-hover:scale-110 transition-transform" style={{ background: "var(--cafe-brown)" }}>
               <item.icon className="w-5 h-5" />
             </div>
             <p className="font-semibold text-sm">{item.title}</p>
@@ -278,7 +278,7 @@ function TageskarteAdmin() {
               <label className="block text-sm font-medium mb-1.5">Hinweis (optional)</label>
               <input value={form.note} onChange={e => setForm(p => ({ ...p, note: e.target.value }))} className="w-full px-4 py-2.5 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="z.B. Nur solange Vorrat reicht" data-testid="input-daily-note" />
             </div>
-            <button type="submit" disabled={createItem.isPending} className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-white text-sm font-semibold disabled:opacity-60 transition-all hover:opacity-90" style={{ background: "var(--eth-green)" }} data-testid="button-add-daily-item">
+            <button type="submit" disabled={createItem.isPending} className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-white text-sm font-semibold disabled:opacity-60 transition-all hover:opacity-90" style={{ background: "var(--cafe-brown)" }} data-testid="button-add-daily-item">
               <Plus className="w-4 h-4" />
               {createItem.isPending ? "Wird hinzugefügt..." : "Gericht hinzufügen"}
             </button>
@@ -297,7 +297,7 @@ function TageskarteAdmin() {
                         <p className="font-medium text-sm">{item.name}</p>
                       </div>
                       <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2">{item.description}</p>
-                      <p className="font-bold text-sm mt-1" style={{ color: "var(--eth-green)" }}>{item.price.toFixed(2).replace(".", ",")} €</p>
+                      <p className="font-bold text-sm mt-1" style={{ color: "var(--cafe-brown)" }}>{item.price.toFixed(2).replace(".", ",")} €</p>
                     </div>
                     <button onClick={() => deleteItem.mutate({ id: item.id }, { onSuccess: () => qc.invalidateQueries({ queryKey: getGetTodaysDailyMenuQueryKey() }) })} disabled={deleteItem.isPending} className="p-2 rounded-lg text-red-500 hover:bg-red-50 transition-colors flex-shrink-0" data-testid={`button-delete-daily-${item.id}`}>
                       <Trash2 className="w-4 h-4" />
@@ -348,7 +348,7 @@ function EventsAdmin() {
             <div><label className="block text-sm font-medium mb-1.5">Untertitel / Termin *</label><input required value={form.subtitle} onChange={e => setForm(p => ({ ...p, subtitle: e.target.value }))} className="w-full px-4 py-2.5 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="z.B. Jeden Freitag" data-testid="input-event-subtitle" /></div>
             <div><label className="block text-sm font-medium mb-1.5">Beschreibung *</label><textarea required value={form.description} onChange={e => setForm(p => ({ ...p, description: e.target.value }))} rows={3} className="w-full px-4 py-2.5 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary resize-none" data-testid="textarea-event-description" /></div>
             <label className="flex items-center gap-2 cursor-pointer text-sm"><input type="checkbox" checked={form.isActive} onChange={e => setForm(p => ({ ...p, isActive: e.target.checked }))} className="rounded" data-testid="checkbox-event-active" /> Aktiv (auf Startseite sichtbar)</label>
-            <button type="submit" disabled={createEvent.isPending} className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-white text-sm font-semibold disabled:opacity-60 hover:opacity-90 transition-all" style={{ background: "var(--eth-green)" }} data-testid="button-add-event">
+            <button type="submit" disabled={createEvent.isPending} className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-white text-sm font-semibold disabled:opacity-60 hover:opacity-90 transition-all" style={{ background: "var(--cafe-brown)" }} data-testid="button-add-event">
               <Plus className="w-4 h-4" />
               {createEvent.isPending ? "Wird erstellt..." : "Event hinzufügen"}
             </button>
@@ -363,7 +363,7 @@ function EventsAdmin() {
                   <div key={event.id} className="flex items-start justify-between gap-3 p-4 bg-card border border-border rounded-xl shadow-sm" data-testid={`admin-event-${event.id}`}>
                     <div className="flex-1 min-w-0">
                       <p className="font-medium text-sm">{event.title}</p>
-                      <p className="text-xs font-medium mt-0.5" style={{ color: "var(--eth-green)" }}>{event.subtitle}</p>
+                      <p className="text-xs font-medium mt-0.5" style={{ color: "var(--cafe-brown)" }}>{event.subtitle}</p>
                       <p className="text-xs text-muted-foreground mt-1 line-clamp-2">{event.description}</p>
                     </div>
                     <button onClick={() => deleteEvent.mutate({ id: event.id }, { onSuccess: () => qc.invalidateQueries({ queryKey: getGetEventsQueryKey() }) })} className="p-2 rounded-lg text-red-500 hover:bg-red-50 transition-colors flex-shrink-0" data-testid={`button-delete-event-${event.id}`}><Trash2 className="w-4 h-4" /></button>
@@ -439,7 +439,7 @@ function SocialMediaAdmin() {
             { label: "Instagram", value: stats.instagramPosts }, { label: "Facebook", value: stats.facebookPosts }, { label: "TikTok", value: stats.tiktokPosts },
           ].map(s => (
             <div key={s.label} className="bg-card border border-border rounded-xl p-4 text-center shadow-sm">
-              <p className="font-bold text-2xl" style={{ color: "var(--eth-green)" }}>{s.value}</p>
+              <p className="font-bold text-2xl" style={{ color: "var(--cafe-brown)" }}>{s.value}</p>
               <p className="text-xs text-muted-foreground mt-0.5">{s.label}</p>
             </div>
           ))}
@@ -469,7 +469,7 @@ function SocialMediaAdmin() {
               <input type="checkbox" checked={publishNow} onChange={e => setPublishNow(e.target.checked)} className="rounded" data-testid="checkbox-publish-now" />
               <span className="text-sm font-medium">Jetzt veröffentlichen</span>
             </label>
-            <button type="submit" disabled={createPost.isPending || platforms.length === 0} className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-white text-sm font-semibold disabled:opacity-60 hover:opacity-90 transition-all" style={{ background: "var(--eth-green)" }} data-testid="button-submit-post">
+            <button type="submit" disabled={createPost.isPending || platforms.length === 0} className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-white text-sm font-semibold disabled:opacity-60 hover:opacity-90 transition-all" style={{ background: "var(--cafe-brown)" }} data-testid="button-submit-post">
               <Send className="w-4 h-4" />
               {createPost.isPending ? "Wird erstellt..." : publishNow ? "Jetzt veröffentlichen" : "Als Entwurf speichern"}
             </button>
@@ -548,7 +548,7 @@ function SpeisekarteAdmin() {
               <label className="flex items-center gap-2 cursor-pointer text-sm"><input type="checkbox" checked={form.isVegetarian} onChange={e => setForm(p => ({ ...p, isVegetarian: e.target.checked }))} className="rounded" data-testid="checkbox-menu-vegetarian" /> Vegetarisch</label>
               <label className="flex items-center gap-2 cursor-pointer text-sm"><input type="checkbox" checked={form.isGlutenFree} onChange={e => setForm(p => ({ ...p, isGlutenFree: e.target.checked }))} className="rounded" data-testid="checkbox-menu-glutenfrei" /> Glutenfrei</label>
             </div>
-            <button type="submit" disabled={createItem.isPending} className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-white text-sm font-semibold disabled:opacity-60 hover:opacity-90 transition-all" style={{ background: "var(--eth-green)" }} data-testid="button-add-menu-item">
+            <button type="submit" disabled={createItem.isPending} className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-white text-sm font-semibold disabled:opacity-60 hover:opacity-90 transition-all" style={{ background: "var(--cafe-brown)" }} data-testid="button-add-menu-item">
               <Plus className="w-4 h-4" />{createItem.isPending ? "Wird hinzugefügt..." : "Gericht hinzufügen"}
             </button>
           </form>
@@ -564,7 +564,7 @@ function SpeisekarteAdmin() {
                       <p className="font-medium text-sm truncate">{item.name}</p>
                       <div className="flex items-center gap-2 mt-0.5">
                         <span className="text-xs text-muted-foreground">{item.category}</span>
-                        <span className="font-semibold text-xs" style={{ color: "var(--eth-green)" }}>{item.price.toFixed(2).replace(".", ",")} €</span>
+                        <span className="font-semibold text-xs" style={{ color: "var(--cafe-brown)" }}>{item.price.toFixed(2).replace(".", ",")} €</span>
                         {item.isVegan && <Leaf className="w-3 h-3 text-green-600" />}
                       </div>
                     </div>
@@ -615,7 +615,7 @@ function GalerieAdmin() {
               <option value="events">Events</option>
             </select>
           </div>
-          <button type="submit" disabled={createImage.isPending} className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-white text-sm font-semibold disabled:opacity-60 hover:opacity-90 transition-all" style={{ background: saved ? "#16a34a" : "var(--eth-green)" }} data-testid="button-add-gallery-image">
+          <button type="submit" disabled={createImage.isPending} className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-white text-sm font-semibold disabled:opacity-60 hover:opacity-90 transition-all" style={{ background: saved ? "#16a34a" : "var(--cafe-brown)" }} data-testid="button-add-gallery-image">
             {saved ? <CheckCircle2 className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
             {saved ? "Gespeichert!" : createImage.isPending ? "Wird hinzugefügt..." : "Bild hinzufügen"}
           </button>
@@ -691,7 +691,7 @@ function EinstellungenAdmin() {
 
       <div className="flex gap-2 mb-6">
         {(Object.entries(groups) as [keyof typeof groups, typeof groups[keyof typeof groups]][]).map(([key, group]) => (
-          <button key={key} onClick={() => setActiveGroup(key)} className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${activeGroup === key ? "text-white" : "bg-muted text-muted-foreground hover:bg-muted/80"}`} style={activeGroup === key ? { background: "var(--eth-green)" } : {}}>
+          <button key={key} onClick={() => setActiveGroup(key)} className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${activeGroup === key ? "text-white" : "bg-muted text-muted-foreground hover:bg-muted/80"}`} style={activeGroup === key ? { background: "var(--cafe-brown)" } : {}}>
             <group.icon className="w-4 h-4" />
             {group.label}
           </button>
@@ -725,7 +725,7 @@ function EinstellungenAdmin() {
                   onClick={() => updateSetting(setting.key, setting.value)}
                   disabled={saving === setting.key}
                   className={`flex items-center gap-2 px-4 py-1.5 rounded-lg text-xs font-semibold text-white transition-all ${saved === setting.key ? "bg-green-600" : "hover:opacity-90"}`}
-                  style={saved === setting.key ? {} : { background: "var(--eth-green)" }}
+                  style={saved === setting.key ? {} : { background: "var(--cafe-brown)" }}
                   data-testid={`button-save-setting-${setting.key}`}
                 >
                   {saved === setting.key ? <CheckCircle2 className="w-3.5 h-3.5" /> : saving === setting.key ? <span className="animate-spin w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full inline-block" /> : <Save className="w-3.5 h-3.5" />}

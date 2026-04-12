@@ -31,7 +31,7 @@ export default function UberUnsPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="w-8 h-1" style={{ background: "var(--eth-green)" }} />
+                  <div className="w-8 h-1" style={{ background: "var(--cafe-brown)" }} />
                   <span className="text-sm font-medium tracking-widest uppercase text-muted-foreground">Seit 2015</span>
                 </div>
                 <h2 className="font-serif text-4xl font-bold mb-6">Unsere Geschichte</h2>
@@ -68,7 +68,7 @@ export default function UberUnsPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 {
-                  color: "var(--eth-green)",
+                  color: "var(--cafe-brown)",
                   title: "Authentizität",
                   text: "Alle Gerichte werden nach original äthiopischen Rezepten zubereitet — mit importierten Gewürzen und handgemachtem Injera aus Teff-Mehl.",
                 },
@@ -119,7 +119,7 @@ export default function UberUnsPage() {
                 <p className="text-muted-foreground leading-relaxed mb-6">
                   "Kochen ist für mich mehr als ein Beruf — es ist eine Möglichkeit, meine Kultur und mein Zuhause zu teilen. Jedes Gericht, das ich serviere, trägt ein Stück Äthiopien in sich."
                 </p>
-                <p className="italic text-sm font-medium" style={{ color: "var(--eth-green)" }}>— Dawit Tesfaye, Küchenchef</p>
+                <p className="italic text-sm font-medium" style={{ color: "var(--cafe-brown)" }}>— Dawit Tesfaye, Küchenchef</p>
               </div>
             </div>
           </div>

@@ -26,7 +26,8 @@ Full website for **Café Melody Bistro** (Werftstraße 5-7, 53117 Bonn-Graurhein
 - `/kontakt` — Kontakt-Formular + Infos
 - `/impressum` — Impressum (DSGVO)
 - `/datenschutz` — Datenschutzerklärung (DSGVO)
-- `/admin` — Admin-Bereich (no layout wrapper)
+- `/admin` — Admin-Bereich (auth-guarded, redirects to /admin/login if not authenticated)
+- `/admin/login` — Admin-Anmeldeseite (kein Layout-Wrapper)
 
 ### Architecture
 pnpm workspace monorepo using TypeScript. Each package manages its own dependencies.
@@ -58,9 +59,23 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - `galleryImages` — gallery images
 - `events` — events on homepage
 - `siteSettings` — key-value settings (restaurant info, SEO, social URLs)
+- `reservations` — Tischreservierungen (vorname, nachname, email, phone, date, time, guests, message, status)
+
+## Admin Authentication
+
+- **Stateless HMAC-based session tokens** (no extra packages, no DB session store)
+- Env var `ADMIN_PASSWORD` (set as Replit Secret) — required
+- Env var `SESSION_SECRET` (already set) — used for signing tokens
+- Token format: Base64URL-encoded `admin:{expiry}:{nonce}:{hmac}`, valid 48h
+- Frontend hook: `src/hooks/useAdminAuth.ts` — login/logout/getToken, stores token in `localStorage.cafe_admin_token`
+- `/admin` route: redirects to `/admin/login` if not authenticated
+- Logout button in admin sidebar
 
 ## API Routes
 
+- `POST /api/auth/login` — admin login (body: { password }), returns { token }
+- `GET /api/auth/me` — check current auth (Authorization: Bearer token)
+- `POST /api/auth/logout` — logout
 - `GET/POST /api/menu` — menu items
 - `GET/POST /api/daily-menu/today` — today's daily menu
 - `GET/POST /api/social-posts` — social media posts
@@ -72,8 +87,14 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - `PUT /api/settings/:key` — update setting
 - `POST /api/social/buffer` — post to Buffer API (Instagram/Facebook/TikTok)
 - `GET /api/social/buffer/status` — check Buffer API configuration
+- `POST /api/reservations` — create reservation (public)
+- `GET /api/reservations` — list all reservations (admin auth required)
+- `PATCH /api/reservations/:id/status` — update status (admin auth required)
 
 ## Environment Variables Needed
+
+Required:
+- `ADMIN_PASSWORD` — admin login password (set as Replit Secret)
 
 For Buffer Social Media API (optional):
 - `BUFFER_ACCESS_TOKEN`
