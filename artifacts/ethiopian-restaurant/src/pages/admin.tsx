@@ -1,5 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { useState, useEffect } from "react";
+import { useLocation } from "wouter";
+import { useAdminAuth } from "@/hooks/useAdminAuth";
 import {
   useGetTodaysDailyMenu,
   useCreateDailyMenuItem,
@@ -44,6 +46,7 @@ import {
   Send,
   Pencil,
   Globe,
+  LogOut,
 } from "lucide-react";
 
 type AdminTab = "dashboard" | "tageskarte" | "events" | "social" | "speisekarte" | "galerie" | "einstellungen";
@@ -52,6 +55,27 @@ const BASE_URL = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 export default function AdminPage() {
   const [tab, setTab] = useState<AdminTab>("dashboard");
+  const { isAuthenticated, isLoading, logout } = useAdminAuth();
+  const [, navigate] = useLocation();
+
+  useEffect(() => {
+    if (!isLoading && !isAuthenticated) {
+      navigate("/admin/login");
+    }
+  }, [isAuthenticated, isLoading, navigate]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--cafe-cream)" }}>
+        <div className="text-center">
+          <div className="animate-spin w-10 h-10 border-2 rounded-full border-t-transparent mx-auto mb-4" style={{ borderColor: "var(--cafe-brown)" }} />
+          <p className="text-muted-foreground text-sm">Anmeldung prüfen...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) return null;
 
   const tabs: { key: AdminTab; icon: React.ElementType; label: string }[] = [
     { key: "dashboard", icon: LayoutDashboard, label: "Dashboard" },
@@ -103,6 +127,14 @@ export default function AdminPage() {
               <Globe className="w-4 h-4" />
               Zur Website
             </a>
+            <button
+              onClick={async () => { await logout(); navigate("/admin/login"); }}
+              className="w-full flex items-center gap-2 text-amber-200/60 hover:text-red-300 text-sm transition-colors"
+              data-testid="button-logout"
+            >
+              <LogOut className="w-4 h-4" />
+              Abmelden
+            </button>
           </div>
         </aside>
 

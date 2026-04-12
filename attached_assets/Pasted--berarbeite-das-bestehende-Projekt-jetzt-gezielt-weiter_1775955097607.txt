@@ -1,0 +1,189 @@
+Überarbeite das bestehende Projekt jetzt gezielt weiter und behebe alle noch offenen Punkte vollständig. Nicht neu anfangen, sondern auf dem aktuellen Stand aufbauen und alles produktionsreif fertigziehen.
+
+Wichtiger Kontext:
+Ich bin der Eigentümer der Website Cafe Melody Bistro und die Inhalte, Bilder und das Branding dürfen verwendet werden. Das Ziel ist ein moderner, hochwertiger Relaunch mit funktionierendem Backend, sauberer Farbwelt, besseren Menüseiten, Tageskarte, Events, Social-Media-Posting und starker SEO. Das bestehende Projekt ist schon vorhanden und soll jetzt konsequent finalisiert werden.
+
+Arbeite diese Punkte vollständig ab:
+
+1. Backend-Zugang / Admin sauber fertigstellen
+- Prüfe, wie der Admin-Zugang aktuell umgesetzt ist.
+- Stelle sicher, dass /admin wirklich funktioniert.
+- Falls Auth noch unvollständig ist, implementiere eine saubere Login-Lösung mit Supabase Auth.
+- Erstelle bei Bedarf eine Admin-Login-Seite unter /admin/login.
+- Sorge dafür, dass nicht eingeloggte Nutzer sauber auf die Login-Seite umgeleitet werden.
+- Erstelle eine klare Session-Prüfung.
+- Admin-Logout einbauen.
+- Falls noch kein Admin-User existiert, dokumentiere im Projekt klar, wie ein erster Admin angelegt wird.
+- Zeige im Admin-Dashboard eindeutig, ob der Nutzer eingeloggt ist.
+- Admin komplett auf Deutsch.
+
+2. Alle restlichen grünen Elemente vollständig entfernen
+- Durchsuche das gesamte Projekt nach allen grünen Farbresten.
+- Ersetze alle hardcodierten Tailwind-Klassen wie bg-green-*, text-green-*, border-green-*, ring-green-*, from-green-*, to-green-*, emerald-*, lime-*, teal-*.
+- Verwende stattdessen konsequent die bestehende warme Braun-/Gold-Farbwelt.
+- Primärfarbe: warmes Espresso-Braun
+- Akzent: Antikgold / Beige / Creme
+- Dunkles Braun für Footer, Admin-Sidebar, Overlays
+- Stelle sicher, dass wirklich keine grüne Hauptanmutung mehr vorhanden ist.
+
+3. Getränkekarte deutlich hochwertiger machen
+- Die Getränkekarte soll visuell stark verbessert werden.
+- Füge passende hochwertige Bilder der Getränke ein, soweit von der Quellwebsite vorhanden.
+- Nutze vorhandene Bilder der Quellseite lokal im Projekt.
+- Wenn auf der Quellseite keine passenden Getränkebilder in ausreichender Qualität vorhanden sind, nutze die besten vorhandenen thematisch passenden Bilder aus den vorhandenen Assets.
+- Baue eine hochwertige Getränkekarten-Seite mit:
+  - Heißgetränke
+  - Kaltgetränke
+  - Biere
+  - Aperitifs
+  - Weine
+  - traditionelle Kaffeezeremonie als optisches Highlight
+- Nutze moderne Karten mit Bild, Titel, Beschreibung, Preis.
+- Mobile Darstellung sauber optimieren.
+
+4. Speisekarte mit hochwertigen Gerichtsbildern aufwerten
+- Die Speisekarte soll deutlich hochwertiger wirken.
+- Nutze lokale Bilder in hoher Qualität.
+- Füge bei möglichst vielen Gerichten passende Food-Bilder ein.
+- Falls mehrere Bilder vorhanden sind, wähle die beste Qualität.
+- Speisekarte modern als Karten-/Grid-System darstellen.
+- Kategorien klar strukturieren.
+- Preisgestaltung sauber hervorheben.
+- Optional Badges wie vegetarisch, vegan, scharf verwenden.
+- Ladezeiten trotzdem performant halten.
+
+5. Drei Tagesgerichte anlegen und sauber darstellen
+- Lege direkt 3 Tagesgerichte im System an.
+- Sie sollen auf /tageskarte sichtbar sein.
+- Heutige Tageskarte prominent oben darstellen.
+- Nutze moderne Kartenoptik mit Bild, Name, Beschreibung, Preis und Datum.
+- Tagesgerichte sollen im Backend bearbeitbar, löschbar und neu anlegbar sein.
+- Falls im Seed noch nichts vorhanden ist, lege 3 sinnvolle äthiopische Tagesgerichte als Startdaten an.
+- Im Admin soll es eine klare CRUD-Verwaltung dafür geben.
+
+6. Events logisch und hochwertig anzeigen
+- Überarbeite die Event-Darstellung.
+- Events sollen nicht nur als einfache Textblöcke erscheinen.
+- Baue eine saubere Event-Sektion mit Karten.
+- Jede Event-Karte soll enthalten:
+  - Bild
+  - Titel
+  - kurzer Beschreibungstext
+  - Wochentag oder Datum
+  - optional Badge wie „Neu“, „Wiederkehrend“, „Live“
+- Nutze vorhandene Event-Inhalte wie Eltern-Kind-Treffen, Feiertags-Brunch, Live Musik.
+- Diese sollen auf der Startseite attraktiv sichtbar sein.
+- Zusätzlich im Admin editierbar machen.
+- Event-CRUD im Admin prüfen und vervollständigen.
+
+7. Social-Media-Posting für Instagram, Facebook und TikTok sauber vorbereiten
+- Prüfe den aktuellen Stand des Social-Media-Backends.
+- Erstelle bzw. vervollständige einen Admin-Bereich für Social Posts.
+- Dort soll man:
+  - Bild/Video hochladen
+  - Caption eingeben
+  - Plattformen auswählen: Instagram, Facebook, TikTok
+  - sofort posten oder planen
+- Speichere Beiträge in social_posts.
+- Erstelle eine saubere API-Route für Buffer-Integration.
+- Route soll robust sein, TypeScript-sicher und sauberes Error Handling haben.
+- Prüfe die ENV-Namen:
+  - BUFFER_ACCESS_TOKEN
+  - BUFFER_FACEBOOK_PROFILE_ID
+  - BUFFER_INSTAGRAM_PROFILE_ID
+  - BUFFER_TIKTOK_PROFILE_ID
+- Zeige im Admin an, ob Buffer korrekt konfiguriert ist oder nicht.
+- Wenn Buffer nicht konfiguriert ist, soll die UI verständlich darauf hinweisen.
+- Ziel: Backend ist strukturell fertig für gleichzeitiges Posten auf Instagram, Facebook und TikTok.
+
+8. SEO deutlich nachschärfen
+- Prüfe die bestehende SEO-Implementierung vollständig.
+- Stelle sicher, dass alle Seiten eigene Metadata haben:
+  - Startseite
+  - Speisekarte
+  - Getränkekarte
+  - Tageskarte
+  - Service
+  - Anfahrt
+  - Galerie
+  - Kontakt
+  - Impressum
+  - Datenschutz
+- Setze saubere:
+  - Title
+  - Meta Description
+  - Open Graph
+  - Canonical
+  - Twitter Cards
+- Ergänze strukturierte Daten:
+  - Restaurant / CafeOrCoffeeShop / LocalBusiness
+- Nutze Bonn als lokalen Fokus.
+- Achte auf gute H1/H2/H3-Struktur.
+- Prüfe interne Verlinkung.
+- Optimiere Alt-Texte aller relevanten Bilder.
+- Prüfe sitemap.ts und robots.ts.
+- Achte auf lokale Restaurant-SEO für Bonn.
+- Ergebnis soll technisch deutlich SEO-stärker sein als vorher.
+
+9. Reservierungsschnittstelle optional vorbereiten
+- Das soll optional bleiben, aber sauber vorbereitet werden.
+- Erstelle eine elegante Lösung für Reservierungsanfragen.
+- Kein vollwertiges Tischmanagement nötig.
+- Stattdessen:
+  - Reservierungsformular auf Kontakt- oder Anfahrt-Seite
+  - Felder: Name, Telefon, E-Mail, Datum, Uhrzeit, Personenanzahl, Nachricht
+  - Speicherung optional in Datenbank
+  - oder Versand per E-Mail / API-Vorbereitung
+- Admin kann Anfragen später sehen, wenn sinnvoll.
+- Diese Reservierungsfunktion soll optional und erweiterbar sein.
+- UI hochwertig und modern.
+
+10. Bilder und Assets sauber prüfen
+- Stelle sicher, dass alle verwendeten Bilder lokal eingebunden sind.
+- Keine externen Hotlinks zur alten Seite.
+- Bildpfade prüfen.
+- Keine kaputten Assets.
+- Next/Image verwenden, wo sinnvoll.
+- Performance und Qualität gut ausbalancieren.
+
+11. Design final hochwertig abschließen
+- Gesamte Website visuell finalisieren.
+- Hero hochwertig
+- Buttons edel
+- Event-Karten hochwertig
+- Food Cards hochwertig
+- Getränkekarten modern
+- Kontakt- und Öffnungszeiten-Sektion elegant
+- Footer stimmig
+- Admin ebenfalls optisch sauber
+- Die Seite soll modern, warm, hochwertig, gastronomisch und professionell wirken.
+
+12. Qualitätsprüfung am Ende
+Prüfe am Ende aktiv:
+- funktioniert /admin wirklich?
+- gibt es eine klare Login-Lösung?
+- sind alle grünen Elemente entfernt?
+- ist die Getränkekarte mit Bildern verbessert?
+- ist die Speisekarte mit hochwertigen Bildern verbessert?
+- sind 3 Tagesgerichte sichtbar und im Backend pflegbar?
+- werden Events hochwertig angezeigt?
+- ist Social-Media-Posting strukturell fertig?
+- ist Buffer-Status sichtbar?
+- ist SEO sauber pro Seite gesetzt?
+- ist Reservierung optional vorbereitet?
+- gibt es keine kaputten Bildpfade?
+- keine TypeScript-Fehler
+- keine halbfertigen Platzhalter
+
+Wichtige Arbeitsweise:
+- Kein Neustart des Projekts.
+- Keine neue Demo-App bauen.
+- Bestehendes Projekt gezielt weiterentwickeln und finalisieren.
+- Keine TODO-Leichen stehen lassen.
+- Alles produktionsnah umsetzen.
+- Deutsches Frontend und deutsches Admin.
+- Sauber typisieren.
+- Fehler direkt beheben.
+
+Ergebnis:
+Ich will nach diesem Schritt ein weitgehend fertiges, hochwertiges Restaurant-Webprojekt mit funktionierendem Admin-Zugang, konsequenter Braun-Farbwelt, verbesserten Menüseiten mit Bildern, 3 Tagesgerichten, moderner Event-Anzeige, vorbereitetem Multi-Plattform-Social-Posting, nachgeschärfter SEO und optional vorbereiteter Reservierungsfunktion.

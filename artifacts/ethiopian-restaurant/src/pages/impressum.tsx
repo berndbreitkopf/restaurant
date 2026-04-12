@@ -10,10 +10,10 @@ export default function ImpressumPage() {
         <link rel="canonical" href="https://cafe-melody-bonn.de/impressum" />
       </Helmet>
 
-      <header className="py-16 text-white" style={{ background: "linear-gradient(135deg, var(--eth-green) 0%, #04581d 100%)" }}>
+      <header className="py-16 text-white" style={{ background: "linear-gradient(135deg, var(--cafe-brown-dark) 0%, var(--cafe-brown) 100%)" }}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="font-serif text-4xl font-bold">Impressum</h1>
-          <p className="text-green-200 mt-2">Angaben gemäß § 5 TMG</p>
+          <p className="text-amber-200/80 mt-2">Angaben gemäß § 5 TMG</p>
         </div>
       </header>
 

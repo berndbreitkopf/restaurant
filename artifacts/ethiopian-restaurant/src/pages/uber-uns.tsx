@@ -14,11 +14,11 @@ export default function UberUnsPage() {
         <link rel="canonical" href="https://habesha-bonn.de/uber-uns" />
       </Helmet>
 
-      <header className="py-16 text-white" style={{ background: "linear-gradient(135deg, var(--eth-green) 0%, #04581d 100%)" }}>
+      <header className="py-16 text-white" style={{ background: "linear-gradient(135deg, var(--cafe-brown-dark) 0%, var(--cafe-brown) 100%)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-yellow-300 text-sm font-medium tracking-widest uppercase">Unsere Geschichte</span>
+          <span className="cafe-label" style={{ color: "var(--cafe-gold)" }}>Unsere Geschichte</span>
           <h1 className="font-serif text-5xl font-bold mt-2 mb-4">Über uns</h1>
-          <p className="text-green-100 max-w-xl mx-auto">
+          <p className="text-amber-100/80 max-w-xl mx-auto">
             Habesha — das bedeutet Äthiopier. Und das verkörpern wir mit jedem Teller, den wir servieren.
           </p>
         </div>

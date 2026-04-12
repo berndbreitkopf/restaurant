@@ -15,6 +15,7 @@ import ServicePage from "@/pages/service";
 import ImpressumPage from "@/pages/impressum";
 import DatenschutzPage from "@/pages/datenschutz";
 import AdminPage from "@/pages/admin";
+import AdminLoginPage from "@/pages/admin-login";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient({
@@ -29,6 +30,9 @@ const queryClient = new QueryClient({
 function Router() {
   return (
     <Switch>
+      <Route path="/admin/login">
+        <AdminLoginPage />
+      </Route>
       <Route path="/admin">
         <AdminPage />
       </Route>
