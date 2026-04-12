@@ -1,0 +1,211 @@
+Baue das bestehende Projekt jetzt nicht neu von null, sondern überarbeite das vorhandene funktionierende Projekt vollständig weiter.
+
+Wichtiger Kontext:
+Ich bin der Eigentümer der bestehenden Website https://www.cafe-melody-bonn.de/ und darf die Inhalte, Bilder und das Logo meiner eigenen Website verwenden. Ich komme nur nicht mehr ins alte Backend, deshalb wird die Seite technisch neu aufgebaut. Verwende deshalb die Inhalte, Texte, das Logo und insbesondere ALLE BILDER der bestehenden Website als Grundlage.
+
+Ganz wichtig:
+1. Übernimm alle Bilder von der bestehenden Website.
+2. Übernimm auch das bestehende Logo der Website.
+3. Verwende Bilder und Logo nicht nur als externe URLs, sondern lade alles lokal ins neue Projekt und speichere es sauber im Projekt, z. B. unter public/images/... und public/logo/...
+4. Nutze auch alle vorhandenen Bilder der Speisekarte und Getränkekarte von der Quellseite.
+5. Falls Speisekarte oder Getränkekarte als Bilder, PDFs oder eingebettete Assets vorliegen, extrahiere bzw. übernimm diese ebenfalls und integriere sie sinnvoll in die neue Seite.
+6. Verwende keine Hotlinks auf die alte Website, sondern lokale Assets im neuen Projekt.
+7. Setze sinnvolle Dateinamen und Alt-Texte für SEO.
+8. Falls Bilder in mehreren Größen existieren, verwende die beste verfügbare Qualität.
+9. Falls einzelne Bilder oder das Logo auf der Quellseite lazy-loaded, als background-image, in CSS, in srcset oder in Unterseiten eingebunden sind, finde und übernimm auch diese.
+10. Prüfe Home, Speisekarte, Getränkekarte, Service, Anfahrt, Galerie und weitere relevante Unterseiten auf Bilder und visuelle Assets.
+11. Binde alle übernommenen Bilder und das Logo modern und hochwertig ins neue Design ein.
+12. Das Branding soll erhalten bleiben: Logo, Farben, Grundgefühl und Atmosphäre der bisherigen Website sollen modern weiterentwickelt werden.
+
+Ziel:
+Die neue Website soll ein moderner, hochwertiger Relaunch von Cafe Melody Bistro sein, mit denselben eigenen Inhalten, Bildern und Logo, aber technisch besser, moderner, sauberer, editierbar und SEO-stärker.
+
+Technik:
+- Next.js 14
+- TypeScript
+- Tailwind CSS
+- App Router
+- Supabase für Datenbank, Storage und Admin-Auth
+- src-Struktur
+- produktionsreif
+- responsive
+- keine Platzhalter
+
+Design:
+- gleiche Grundfarbwelt wie die bestehende Seite
+- äthiopische Atmosphäre erhalten
+- modernere, hochwertigere, cleanere Umsetzung
+- warme Optik
+- viel Weißraum
+- edle Buttons
+- bessere Typografie
+- hochwertige Hero-Sektion
+- moderne Event-Karten
+- moderne Food Cards
+- visuell hochwertiger als die alte Seite
+
+Sehr wichtig zur Farbwelt:
+Bitte KEIN dominantes Grün als Primärfarbe verwenden.
+Stattdessen soll der gleiche bzw. sehr ähnliche warme Braunton der bestehenden Website als Hauptfarbe verwendet werden.
+Die neue Website soll sich farblich an der vorhandenen Website orientieren, aber moderner und hochwertiger wirken.
+
+Farbvorgaben:
+- Primärfarbe: derselbe bzw. sehr ähnliche Braunton wie auf der bestehenden Website
+- Akzentfarben: warme Beige-, Creme-, Sand- und Goldtöne
+- optional sehr dezente rot-warme Akzente, aber nur unterstützend
+- keine grüne Gesamtanmutung
+- insgesamt warm, elegant, hochwertig, gastronomisch, einladend
+
+Designstil:
+- hochwertige Gastro-Website
+- moderne warme Brauntöne
+- äthiopisches Flair ohne Kitsch
+- ruhige Premium-Optik
+- große Bildflächen
+- edle Buttons
+- moderne Karten
+- bessere Sektionen als auf der alten Website
+- gleiches Marken- und Raumgefühl wie die bestehende Seite, aber moderner
+
+Öffentliche Seiten:
+1. /
+2. /speisekarte
+3. /getraenkekarte
+4. /tageskarte
+5. /service
+6. /anfahrt
+7. /galerie
+8. /kontakt
+9. /impressum
+10. /datenschutz
+
+Inhalte:
+Nutze die bestehende Website als Quelle für Inhalte und Struktur. Übernimm dabei die vorhandenen Inhalte, das Logo und Bilder sinngemäß und vollständig, wo sinnvoll:
+- Hero / Startseite
+- Neuigkeiten & Events
+- Eltern-Kind-Treffen
+- Feiertags-Brunch
+- Live Musik
+- Willkommen
+- Äthiopische Küche
+- Hausgemachte Kuchen & Getränke
+- Kontakt
+- Öffnungszeiten
+- Speisekarte
+- Getränkekarte
+- Service
+- Anfahrt
+
+Bild- und Logo-Integration:
+- alle relevanten Bilder von der Quellseite sammeln
+- bestehendes Logo von der Quellseite übernehmen
+- alles lokal speichern
+- im neuen Design passend platzieren
+- Logo im Header, Footer und ggf. Hero sauber integrieren
+- Hero-Bilder hochwertig einsetzen
+- Event-Bilder in schöne Karten integrieren
+- Essens- und Getränkebilder in Menübereiche integrieren
+- Galerieseite mit übernommenen Bildern befüllen
+- Bilder der Speisekarte/Getränkekarte entweder als strukturierte Inhalte oder zusätzlich als Vorschau/Originalansicht einbinden
+- Next/Image verwenden, wo sinnvoll
+- Logo möglichst als transparente Datei sauber einbinden, falls verfügbar
+
+Backend / Admin:
+Erstelle bzw. erweitere den Admin-Bereich unter /admin mit deutschem UI und Sidebar-Layout.
+
+Im Admin editierbar:
+- Startseiteninhalte
+- Speisekarte
+- Getränkekarte
+- Tageskarte
+- Events
+- Galerie
+- Öffnungszeiten
+- Kontaktangaben
+- SEO-Titel und Meta-Beschreibungen
+- Social Media Links
+- optional Logo und Hero-Bilder austauschbar
+
+Admin-Bereiche:
+1. Dashboard
+2. Startseite bearbeiten
+3. Speisekarte verwalten
+4. Getränkekarte verwalten
+5. Tageskarte verwalten
+6. Events verwalten
+7. Galerie verwalten
+8. Kontakt / Öffnungszeiten
+9. SEO
+10. Social Media Beiträge
+11. Branding / Logo / Bilder
+
+Tageskarte:
+- eigene Seite /tageskarte
+- heutige Tageskarte prominent
+- datumsbezogene Darstellung
+- CRUD im Backend
+- moderne Kartenoptik
+- filterbar nach Datum
+
+Social Media:
+Im Admin Bereich für Social Posts:
+- Bild/Video Upload
+- Caption
+- Plattformen: Facebook, Instagram, TikTok
+- sofort veröffentlichen oder planen
+- Speicherung in social_posts
+- API-Route für Buffer-Vorbereitung unter src/app/api/social/post/route.ts
+
+ENV-Namen:
+- BUFFER_ACCESS_TOKEN
+- BUFFER_FACEBOOK_PROFILE_ID
+- BUFFER_INSTAGRAM_PROFILE_ID
+- BUFFER_TIKTOK_PROFILE_ID
+
+SEO:
+- pro Seite eigene Metadata
+- Title und Description
+- Open Graph
+- Twitter Cards
+- Canonical URLs
+- robots.ts
+- sitemap.ts
+- strukturierte Daten für Restaurant / LocalBusiness / CafeOrCoffeeShop
+- Local SEO für Bonn
+- Alt-Texte für alle übernommenen Bilder
+- semantische HTML-Struktur
+- H1/H2/H3 sauber
+- interne Verlinkung
+
+Wichtige Arbeitsanweisung:
+Arbeite jetzt konkret die bestehende Quellwebsite durch und übernimm alle vorhandenen Bilder, das Logo und visuelle Assets in das neue Projekt. Wenn Assets auf Unterseiten liegen, dort ebenfalls sammeln. Wenn nötig, analysiere HTML, CSS, Bildpfade, Hintergrundbilder, srcset, PDFs und eingebettete Dateien. Das Ergebnis soll keine Demo sein, sondern ein echter Relaunch mit den vorhandenen Bildern, eigenem Logo und eigenen Inhalten.
+
+Qualitätsanspruch:
+- keine externen Hotlinks zur alten Seite
+- kein fehlendes Logo
+- keine falsche grüne Hauptfarbwelt
+- Braunton der bestehenden Website als primäre Markenfarbe verwenden
+- keine Platzhalter
+- keine halbfertigen Seiten
+- kein Standard-Template-Look
+- keine TypeScript-Fehler
+- produktionsreife Umsetzung
+- hochwertiges modernes UI
+- mobil sauber
+- Bilder korrekt eingebunden
+- Logo korrekt eingebunden
+- visuell konsistent
+- Admin funktionsfähig
+- bestehendes Projekt gezielt erweitern und finalisieren statt etwas Neues halbfertig anzulegen
+
+Prüfe am Ende:
+1. ob alle Seiten korrekt verlinkt sind
+2. ob alle übernommenen Bilder lokal eingebunden sind
+3. ob das übernommene Logo lokal eingebunden und sichtbar ist
+4. ob die Hauptfarbwelt den warmen Braunton der bestehenden Seite nutzt
+5. ob Speisekarte und Getränkekarte korrekt dargestellt werden
+6. ob Tageskarte im Backend pflegbar ist
+7. ob SEO-Metadaten gesetzt sind
+8. ob Admin sauber funktioniert
+9. ob keine kaputten Bildpfade existieren
+10. ob die Seite modern, hochwertig und deutlich besser als vorher aussieht

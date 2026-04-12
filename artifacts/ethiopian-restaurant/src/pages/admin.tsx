@@ -71,17 +71,12 @@ export default function AdminPage() {
       </Helmet>
 
       <div className="min-h-screen flex bg-background">
-        <aside className="w-64 flex-shrink-0 text-white flex flex-col shadow-xl" style={{ background: "linear-gradient(180deg, #0a2e14 0%, var(--eth-green) 100%)" }}>
-          <div className="p-5 border-b border-green-700">
+        <aside className="w-64 flex-shrink-0 text-white flex flex-col shadow-xl" style={{ background: "linear-gradient(180deg, var(--cafe-brown-dark) 0%, var(--cafe-brown) 100%)" }}>
+          <div className="p-5 border-b border-white/10">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-yellow-400 flex items-center justify-center font-bold text-green-900 text-xl shadow-sm">
-                M
-              </div>
-              <div>
-                <p className="font-semibold text-sm">Café Melody</p>
-                <p className="text-green-300 text-xs">Admin-Bereich</p>
-              </div>
+              <img src="/logo/logo.svg" alt="Café Melody Bistro" className="h-10 w-auto brightness-0 invert opacity-90" />
             </div>
+            <p className="text-amber-200/60 text-xs mt-2 ml-1">Admin-Bereich</p>
           </div>
           <nav className="flex-1 p-3 overflow-y-auto" aria-label="Admin Navigation">
             <ul className="space-y-1">
@@ -92,7 +87,7 @@ export default function AdminPage() {
                     className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${
                       tab === item.key
                         ? "bg-white/20 text-white shadow-sm"
-                        : "text-green-200 hover:bg-white/10 hover:text-white"
+                        : "text-amber-100/70 hover:bg-white/10 hover:text-white"
                     }`}
                     data-testid={`admin-nav-${item.key}`}
                   >
@@ -103,8 +98,8 @@ export default function AdminPage() {
               ))}
             </ul>
           </nav>
-          <div className="p-4 border-t border-green-700 space-y-2">
-            <a href="/" className="flex items-center gap-2 text-green-300 hover:text-white text-sm transition-colors" data-testid="link-back-to-site">
+          <div className="p-4 border-t border-white/10 space-y-2">
+            <a href="/" className="flex items-center gap-2 text-amber-200/60 hover:text-white text-sm transition-colors" data-testid="link-back-to-site">
               <Globe className="w-4 h-4" />
               Zur Website
             </a>

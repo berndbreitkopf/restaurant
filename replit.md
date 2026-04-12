@@ -7,8 +7,12 @@ Full website for **Café Melody Bistro** (Werftstraße 5-7, 53117 Bonn-Graurhein
 - **Hours**: Montag Ruhetag, Di–So 10:00–19:00 Uhr
 - **Navigation**: Startseite, Speisekarte, Getränkekarte, Tageskarte, Service, Galerie, Anfahrt
 - **Admin**: /admin (Dashboard, Tageskarte, Events, Social Media, Speisekarte, Galerie, Einstellungen)
-- **Colors**: Green `#078930`, Yellow `#FCDD09`, Red `#DA121A`
+- **Colors**: Warm espresso brown `--cafe-brown: #7C4A2D`, gold `--cafe-gold: #C9A66B`, dark `--cafe-brown-dark: #3D1F0A`, terracotta `--cafe-terra: #B03A2E`
+- **Legacy aliases**: `--eth-green` → `#7C4A2D`, `--eth-yellow` → `#C9A66B`, `--eth-red` → `#B03A2E`
 - **Fonts**: Playfair Display (serif headings), Inter (body)
+- **Logo**: SVG at `/logo/logo.svg` — coffee cup with music note icon + "Café Melody BISTRO · BONN" text
+- **Real images**: 25 downloaded from cafe-melody-bonn.de into `public/images/` (hero/, events/, speisekarte/, service/, getraenke/, home/)
+
 - **SEO**: Full German SEO, JSON-LD CafeOrCoffeeShop schema, canonical `cafe-melody-bonn.de`
 
 ### All Pages

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Noto+Serif+Ethiopic:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -58,9 +58,9 @@
   --color-sidebar-ring: hsl(var(--sidebar-ring));
 
   --font-sans: 'Inter', sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-display: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
   --font-mono: Menlo, monospace;
-  --font-ethiopic: 'Noto Serif Ethiopic', serif;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -68,8 +68,7 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-/* Ethiopian Restaurant - Light Mode */
-/* Primary colors inspired by Ethiopian flag: Green #078930, Yellow #FCDD09, Red #DA121A */
+/* Café Melody Bistro — Warm Brown Palette */
 :root {
   --button-outline: rgba(0,0,0, .10);
   --badge-outline: rgba(0,0,0, .05);
@@ -78,69 +77,69 @@
   --elevate-2: rgba(0,0,0, .08);
 
   /* Warm cream background */
-  --background: 40 30% 97%;
-  --foreground: 20 15% 15%;
+  --background: 38 45% 97%;
+  --foreground: 22 30% 15%;
 
-  --border: 35 20% 85%;
+  --border: 32 25% 86%;
 
   /* Card: warm white */
-  --card: 40 25% 99%;
-  --card-foreground: 20 15% 15%;
-  --card-border: 35 15% 88%;
+  --card: 38 40% 99%;
+  --card-foreground: 22 30% 15%;
+  --card-border: 32 20% 89%;
 
-  /* Sidebar: deep forest green */
-  --sidebar: 139 94% 10%;
-  --sidebar-foreground: 50 97% 92%;
-  --sidebar-border: 139 94% 15%;
-  --sidebar-primary: 50 97% 52%;
-  --sidebar-primary-foreground: 139 94% 10%;
-  --sidebar-accent: 139 94% 16%;
-  --sidebar-accent-foreground: 50 97% 85%;
-  --sidebar-ring: 50 97% 52%;
+  /* Sidebar: deep espresso brown */
+  --sidebar: 22 55% 14%;
+  --sidebar-foreground: 38 55% 88%;
+  --sidebar-border: 22 50% 20%;
+  --sidebar-primary: 35 55% 60%;
+  --sidebar-primary-foreground: 22 55% 10%;
+  --sidebar-accent: 22 50% 20%;
+  --sidebar-accent-foreground: 38 55% 78%;
+  --sidebar-ring: 35 55% 60%;
 
-  --popover: 40 25% 99%;
-  --popover-foreground: 20 15% 15%;
-  --popover-border: 35 15% 88%;
+  --popover: 38 40% 99%;
+  --popover-foreground: 22 30% 15%;
+  --popover-border: 32 20% 89%;
 
-  /* Primary: Ethiopian Green */
-  --primary: 139 94% 28%;
-  --primary-foreground: 50 97% 98%;
+  /* Primary: warm espresso brown */
+  --primary: 22 55% 32%;
+  --primary-foreground: 38 60% 97%;
 
-  /* Secondary: Ethiopian Gold/Yellow */
-  --secondary: 50 97% 52%;
-  --secondary-foreground: 20 15% 15%;
+  /* Secondary: warm antique gold */
+  --secondary: 35 55% 60%;
+  --secondary-foreground: 22 30% 15%;
 
-  --muted: 40 20% 92%;
-  --muted-foreground: 20 10% 45%;
+  --muted: 36 25% 92%;
+  --muted-foreground: 22 15% 48%;
 
-  /* Accent: Ethiopian Red */
-  --accent: 358 83% 47%;
+  /* Accent: warm terracotta */
+  --accent: 12 55% 45%;
   --accent-foreground: 0 0% 100%;
 
-  --destructive: 0 84% 60%;
+  --destructive: 0 75% 55%;
   --destructive-foreground: 0 0% 100%;
 
-  --input: 35 20% 85%;
-  --ring: 139 94% 28%;
+  --input: 32 25% 86%;
+  --ring: 22 55% 32%;
 
-  --chart-1: 139 94% 28%;
-  --chart-2: 50 97% 45%;
-  --chart-3: 358 83% 47%;
-  --chart-4: 25 80% 55%;
-  --chart-5: 200 70% 45%;
+  --chart-1: 22 55% 32%;
+  --chart-2: 35 55% 55%;
+  --chart-3: 12 55% 45%;
+  --chart-4: 42 70% 50%;
+  --chart-5: 200 60% 45%;
 
   --app-font-sans: 'Inter', sans-serif;
   --app-font-serif: 'Playfair Display', Georgia, serif;
   --app-font-mono: Menlo, monospace;
   --radius: .5rem;
-  --shadow-2xs: 0px 1px 2px 0px rgba(0,0,0,0.04);
-  --shadow-xs: 0px 2px 4px 0px rgba(0,0,0,0.06);
-  --shadow-sm: 0px 2px 8px 0px rgba(0,0,0,0.08);
-  --shadow: 0px 4px 12px 0px rgba(0,0,0,0.10);
-  --shadow-md: 0px 6px 20px 0px rgba(0,0,0,0.12);
-  --shadow-lg: 0px 12px 30px 0px rgba(0,0,0,0.14);
-  --shadow-xl: 0px 20px 40px 0px rgba(0,0,0,0.16);
-  --shadow-2xl: 0px 30px 60px 0px rgba(0,0,0,0.20);
+  --shadow-2xs: 0px 1px 2px 0px rgba(62,20,8,.04);
+  --shadow-xs: 0px 2px 4px 0px rgba(62,20,8,.06);
+  --shadow-sm: 0px 2px 8px 0px rgba(62,20,8,.08);
+  --shadow: 0px 4px 12px 0px rgba(62,20,8,.10);
+  --shadow-md: 0px 6px 20px 0px rgba(62,20,8,.12);
+  --shadow-lg: 0px 12px 30px 0px rgba(62,20,8,.14);
+  --shadow-xl: 0px 20px 40px 0px rgba(62,20,8,.16);
+  --shadow-2xl: 0px 30px 60px 0px rgba(62,20,8,.20);
   --tracking-normal: 0em;
   --spacing: 0.25rem;
 
@@ -153,11 +152,28 @@
   --destructive-border: hsl(var(--destructive));
 }
 
-/* Ethiopian colors as CSS custom properties for direct use */
+/* Brand colors — warm espresso palette */
 :root {
-  --eth-green: #078930;
-  --eth-yellow: #FCDD09;
-  --eth-red: #DA121A;
+  /* Primary warm brown (espresso) */
+  --cafe-brown: #7C4A2D;
+  --cafe-brown-dark: #3D1F0A;
+  --cafe-brown-light: #A0673A;
+
+  /* Warm antique gold */
+  --cafe-gold: #C9A66B;
+  --cafe-gold-light: #E8D5A3;
+
+  /* Warm cream/sand */
+  --cafe-cream: #F5EDD8;
+  --cafe-sand: #E8DCC8;
+
+  /* Warm terracotta */
+  --cafe-terra: #B03A2E;
+
+  /* Legacy names redirected to brown theme */
+  --eth-green: #7C4A2D;
+  --eth-yellow: #C9A66B;
+  --eth-red: #B03A2E;
 }
 
 @layer base {
@@ -170,7 +186,7 @@
   }
 
   h1, h2, h3 {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
   }
 }
 
@@ -202,8 +218,13 @@
   }
 }
 
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
 .animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out forwards;
+  animation: fadeInUp 0.7s ease-out forwards;
 }
 
 .animate-fade-in {
@@ -220,9 +241,42 @@
 .delay-400 { animation-delay: 0.4s; }
 .delay-500 { animation-delay: 0.5s; }
 
-/* Ethiopian flag stripe decoration */
+/* Decorative stripe — warm brown / gold / terracotta */
 .eth-stripe {
-  background: linear-gradient(90deg, var(--eth-green) 33.3%, var(--eth-yellow) 33.3% 66.6%, var(--eth-red) 66.6%);
+  background: linear-gradient(90deg, var(--cafe-brown) 33.3%, var(--cafe-gold) 33.3% 66.6%, var(--cafe-terra) 66.6%);
+}
+
+/* Café-specific utilities */
+.cafe-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  letter-spacing: -0.02em;
+}
+
+.cafe-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.bg-cafe-warm {
+  background-color: var(--cafe-cream);
+}
+
+.text-gold {
+  color: var(--cafe-gold);
+}
+
+.bg-brown-gradient {
+  background: linear-gradient(135deg, var(--cafe-brown-dark) 0%, var(--cafe-brown) 60%, var(--cafe-brown-light) 100%);
+}
+
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(62, 20, 8, 0.15);
 }
 
 /* Utility elevate system */
