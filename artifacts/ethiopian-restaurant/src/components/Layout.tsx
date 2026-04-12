@@ -1,15 +1,15 @@
 import { Link, useLocation } from "wouter";
 import { useState } from "react";
-import { Menu, X, Phone, MapPin, Clock } from "lucide-react";
+import { Menu, X, Phone, MapPin, Clock, Mail } from "lucide-react";
 import { SiFacebook, SiInstagram, SiTiktok } from "react-icons/si";
 
 const navLinks = [
   { href: "/", label: "Startseite" },
   { href: "/speisekarte", label: "Speisekarte" },
+  { href: "/getraenkekarte", label: "Getränkekarte" },
   { href: "/tageskarte", label: "Tageskarte" },
   { href: "/galerie", label: "Galerie" },
-  { href: "/uber-uns", label: "Uber uns" },
-  { href: "/kontakt", label: "Kontakt" },
+  { href: "/anfahrt", label: "Anfahrt" },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -25,17 +25,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Hauptnavigation">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center gap-3 group" data-testid="link-home-logo">
-              <div className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-lg" style={{ background: "var(--eth-green)" }}>
-                H
+              <div className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl" style={{ background: "var(--eth-green)" }}>
+                M
               </div>
               <div>
-                <span className="font-serif text-lg font-bold text-foreground">Habesha</span>
-                <span className="block text-xs text-muted-foreground tracking-widest uppercase">Restaurant Bonn</span>
+                <span className="font-serif text-lg font-bold text-foreground">Café Melody</span>
+                <span className="block text-xs text-muted-foreground tracking-widest uppercase">Bistro Bonn</span>
               </div>
             </Link>
 
             {/* Desktop nav */}
-            <ul className="hidden md:flex items-center gap-6">
+            <ul className="hidden lg:flex items-center gap-5">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -53,23 +53,23 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               ))}
             </ul>
 
-            <div className="hidden md:flex items-center gap-3">
+            <div className="hidden lg:flex items-center gap-3">
               <a
-                href="tel:+4922812345678"
+                href="tel:+491709384822"
                 className="flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-full text-white transition-opacity hover:opacity-90"
                 style={{ background: "var(--eth-green)" }}
                 data-testid="link-phone-header"
               >
                 <Phone className="w-4 h-4" />
-                Reservierung
+                Reservieren
               </a>
             </div>
 
             {/* Mobile menu toggle */}
             <button
-              className="md:hidden p-2 rounded-md text-foreground hover:bg-muted"
+              className="lg:hidden p-2 rounded-md text-foreground hover:bg-muted"
               onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Menu"
+              aria-label="Menu öffnen"
               data-testid="button-mobile-menu"
             >
               {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -78,7 +78,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Mobile nav */}
           {menuOpen && (
-            <div className="md:hidden border-t border-border pb-4">
+            <div className="lg:hidden border-t border-border pb-4">
               <ul className="space-y-1 pt-2">
                 {navLinks.map((link) => (
                   <li key={link.href}>
@@ -96,6 +96,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     </Link>
                   </li>
                 ))}
+                <li className="px-4 pt-2">
+                  <a
+                    href="tel:+491709384822"
+                    className="flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-full text-white"
+                    style={{ background: "var(--eth-green)" }}
+                  >
+                    <Phone className="w-4 h-4" />
+                    +49 170 9384822
+                  </a>
+                </li>
               </ul>
             </div>
           )}
@@ -111,16 +121,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center font-bold text-lg" style={{ color: "var(--eth-green)" }}>
-                  H
+                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center font-bold text-xl" style={{ color: "var(--eth-green)" }}>
+                  M
                 </div>
                 <div>
-                  <span className="font-serif text-lg font-bold">Habesha Restaurant</span>
-                  <p className="text-green-200 text-xs tracking-widest uppercase">Bonn</p>
+                  <span className="font-serif text-lg font-bold">Café Melody</span>
+                  <p className="text-green-200 text-xs tracking-widest uppercase">Bistro Bonn</p>
                 </div>
               </div>
               <p className="text-green-100 text-sm leading-relaxed">
-                Authentische äthiopische Küche im Herzen von Bonn. Erleben Sie die Aromen, Traditionen und Gastfreundschaft Äthiopiens.
+                Dein gemütliches Café in Bonn mit äthiopischer Küche und hausgemachten Spezialitäten. Harmonie und Genuss — das ist unser Versprechen.
               </p>
               <div className="flex gap-3 mt-4">
                 <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors" data-testid="link-instagram-footer" aria-label="Instagram">
@@ -136,21 +146,20 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
 
             <div>
-              <h3 className="font-serif text-lg font-semibold mb-4 text-yellow-300">Offnungszeiten</h3>
+              <h3 className="font-serif text-lg font-semibold mb-4 text-yellow-300">Öffnungszeiten</h3>
               <div className="space-y-2 text-sm text-green-100">
                 <div className="flex items-start gap-2">
                   <Clock className="w-4 h-4 mt-0.5 text-yellow-400 flex-shrink-0" />
                   <div>
-                    <p><strong className="text-white">Mo – Fr</strong></p>
-                    <p>12:00 – 14:30 Uhr</p>
-                    <p>17:00 – 22:00 Uhr</p>
+                    <p><strong className="text-white">Montag</strong></p>
+                    <p>Ruhetag</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
                   <Clock className="w-4 h-4 mt-0.5 text-yellow-400 flex-shrink-0" />
                   <div>
-                    <p><strong className="text-white">Sa – So</strong></p>
-                    <p>12:00 – 22:30 Uhr</p>
+                    <p><strong className="text-white">Dienstag – Sonntag</strong></p>
+                    <p>10:00 – 19:00 Uhr</p>
                   </div>
                 </div>
               </div>
@@ -162,14 +171,20 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <div className="flex items-start gap-2">
                   <MapPin className="w-4 h-4 mt-0.5 text-yellow-400 flex-shrink-0" />
                   <address className="not-italic">
-                    Musterstrasse 42<br />
-                    53111 Bonn
+                    Werftstraße 5-7<br />
+                    53117 Bonn-Graurheindorf
                   </address>
                 </div>
                 <div className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-yellow-400 flex-shrink-0" />
-                  <a href="tel:+4922812345678" className="hover:text-white transition-colors" data-testid="link-phone-footer">
-                    +49 228 12345678
+                  <a href="tel:+491709384822" className="hover:text-white transition-colors" data-testid="link-phone-footer">
+                    +49 170 9384822
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-yellow-400 flex-shrink-0" />
+                  <a href="mailto:hallo@cafe-melody-bonn.de" className="hover:text-white transition-colors">
+                    hallo@cafe-melody-bonn.de
                   </a>
                 </div>
               </div>
@@ -188,8 +203,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
 
           <div className="border-t border-green-700 mt-8 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-green-300">
-            <p>&copy; {new Date().getFullYear()} Habesha Restaurant Bonn. Alle Rechte vorbehalten.</p>
-            <p>Designed with love for Ethiopia</p>
+            <p>&copy; {new Date().getFullYear()} Café Melody Bistro Bonn. Alle Rechte vorbehalten.</p>
+            <p>Harmonie und Genuss — inspiriert von Äthiopien</p>
           </div>
         </div>
       </footer>

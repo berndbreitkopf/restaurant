@@ -150,6 +150,27 @@ export interface CreateGalleryImageBody {
   sortOrder?: number;
 }
 
+export interface Event {
+  id: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  /** @nullable */
+  imageUrl?: string | null;
+  isActive: boolean;
+  sortOrder: number;
+  createdAt: string;
+}
+
+export interface CreateEventBody {
+  title: string;
+  subtitle: string;
+  description: string;
+  /** @nullable */
+  imageUrl?: string | null;
+  isActive?: boolean;
+}
+
 export type GetDailyMenuItemsParams = {
   /**
    * @nullable

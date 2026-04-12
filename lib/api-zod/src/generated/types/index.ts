@@ -7,10 +7,12 @@
  */
 
 export * from "./createDailyMenuItemBody";
+export * from "./createEventBody";
 export * from "./createGalleryImageBody";
 export * from "./createMenuItemBody";
 export * from "./createSocialPostBody";
 export * from "./dailyMenuItem";
+export * from "./event";
 export * from "./galleryImage";
 export * from "./getDailyMenuItemsParams";
 export * from "./healthStatus";

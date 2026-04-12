@@ -18,6 +18,8 @@ tags:
     description: Social media posting
   - name: gallery
     description: Gallery management
+  - name: events
+    description: Events & Neuigkeiten
 paths:
   /healthz:
     get:
@@ -283,6 +285,53 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/GalleryImage"
+
+  /events:
+    get:
+      operationId: getEvents
+      tags: [events]
+      summary: Get all active events
+      responses:
+        "200":
+          description: List of events
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Event"
+    post:
+      operationId: createEvent
+      tags: [events]
+      summary: Create an event
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateEventBody"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Event"
+
+  /events/{id}:
+    delete:
+      operationId: deleteEvent
+      tags: [events]
+      summary: Delete an event
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
 
 components:
   schemas:
@@ -577,3 +626,49 @@ components:
       required:
         - url
         - category
+
+    Event:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        subtitle:
+          type: string
+        description:
+          type: string
+        imageUrl:
+          type: ["string", "null"]
+        isActive:
+          type: boolean
+        sortOrder:
+          type: integer
+        createdAt:
+          type: string
+      required:
+        - id
+        - title
+        - subtitle
+        - description
+        - isActive
+        - sortOrder
+        - createdAt
+
+    CreateEventBody:
+      type: object
+      properties:
+        title:
+          type: string
+        subtitle:
+          type: string
+        description:
+          type: string
+        imageUrl:
+          type: ["string", "null"]
+        isActive:
+          type: boolean
+      required:
+        - title
+        - subtitle
+        - description

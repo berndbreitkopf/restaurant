@@ -6,10 +6,10 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Layout from "@/components/Layout";
 import HomePage from "@/pages/home";
 import SpeisekartePage from "@/pages/speisekarte";
+import GetraenkekartePage from "@/pages/getraenkekarte";
 import TageskartePage from "@/pages/tageskarte";
 import GaleriePage from "@/pages/galerie";
-import UberUnsPage from "@/pages/uber-uns";
-import KontaktPage from "@/pages/kontakt";
+import AnfahrtPage from "@/pages/anfahrt";
 import AdminPage from "@/pages/admin";
 import NotFound from "@/pages/not-found";
 
@@ -33,10 +33,10 @@ function Router() {
           <Switch>
             <Route path="/" component={HomePage} />
             <Route path="/speisekarte" component={SpeisekartePage} />
+            <Route path="/getraenkekarte" component={GetraenkekartePage} />
             <Route path="/tageskarte" component={TageskartePage} />
             <Route path="/galerie" component={GaleriePage} />
-            <Route path="/uber-uns" component={UberUnsPage} />
-            <Route path="/kontakt" component={KontaktPage} />
+            <Route path="/anfahrt" component={AnfahrtPage} />
             <Route component={NotFound} />
           </Switch>
         </Layout>

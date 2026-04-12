@@ -235,3 +235,36 @@ export const CreateGalleryImageBody = zod.object({
   category: zod.string(),
   sortOrder: zod.number().optional(),
 });
+
+/**
+ * @summary Get all active events
+ */
+export const GetEventsResponseItem = zod.object({
+  id: zod.number(),
+  title: zod.string(),
+  subtitle: zod.string(),
+  description: zod.string(),
+  imageUrl: zod.string().nullish(),
+  isActive: zod.boolean(),
+  sortOrder: zod.number(),
+  createdAt: zod.string(),
+});
+export const GetEventsResponse = zod.array(GetEventsResponseItem);
+
+/**
+ * @summary Create an event
+ */
+export const CreateEventBody = zod.object({
+  title: zod.string(),
+  subtitle: zod.string(),
+  description: zod.string(),
+  imageUrl: zod.string().nullish(),
+  isActive: zod.boolean().optional(),
+});
+
+/**
+ * @summary Delete an event
+ */
+export const DeleteEventParams = zod.object({
+  id: zod.coerce.number(),
+});

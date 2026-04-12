@@ -1,7 +1,17 @@
 # Workspace
 
-## Overview
+## Project: Café Melody Bistro Bonn
 
+Full website for **Café Melody Bistro** (Werftstraße 5-7, 53117 Bonn-Graurheindorf).
+- **Phone**: +49 170 9384822 | **Email**: hallo@cafe-melody-bonn.de
+- **Hours**: Montag Ruhetag, Di–So 10:00–19:00 Uhr
+- **Navigation**: Startseite, Speisekarte, Getränkekarte, Tageskarte, Galerie, Anfahrt
+- **Admin**: /admin (Tageskarte, Events, Social Media, Speisekarte, Galerie)
+- **Colors**: Green `#078930`, Yellow `#FCDD09`, Red `#DA121A`
+- **Fonts**: Playfair Display (serif headings), Inter (body)
+- **SEO**: Full German SEO, JSON-LD CafeOrCoffeeShop schema, canonical `cafe-melody-bonn.de`
+
+### Architecture
 pnpm workspace monorepo using TypeScript. Each package manages its own dependencies.
 
 ## Stack
