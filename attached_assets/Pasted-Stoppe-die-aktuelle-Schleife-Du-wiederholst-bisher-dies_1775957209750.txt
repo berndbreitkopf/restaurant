@@ -1,0 +1,254 @@
+Stoppe die aktuelle Schleife. Du wiederholst bisher dieselben Änderungen (ADMIN_PASSWORD, Tageskarte, Farben), aber die eigentlichen Mängel sind noch nicht behoben. Arbeite jetzt nicht mehr allgemein, sondern behebe exakt die folgenden konkreten Probleme im bestehenden Projekt. Nicht neu anfangen. Kein generisches “alles erledigt”. Keine Zusammenfassung ohne nachweisbare Umsetzung.
+
+Wichtige Regel:
+Du darfst am Ende NICHT schreiben „alles fertig“, wenn im Admin weiterhin Listen leer sind oder wenn Username-Login, Social-Status oder Produktlisten fehlen. Du musst die geforderten Bereiche wirklich mit Daten sichtbar machen.
+
+Konkrete Mängel, die jetzt behoben werden müssen:
+
+A. Admin-Login ist falsch umgesetzt
+Aktuell scheint nur ein Passwort abgefragt zu werden. Das ist falsch.
+Setze den Admin-Zugang auf:
+- ADMIN_USERNAME
+- ADMIN_PASSWORD
+Optional zusätzlich:
+- ADMIN_DISPLAY_NAME
+
+Aufgaben:
+1. Login unter /admin/login auf Benutzername + Passwort umbauen
+2. Session-Prüfung beibehalten oder sauber neu verdrahten
+3. Im Admin sichtbar anzeigen:
+   - Eingeloggt als: <Benutzername oder Anzeigename>
+4. Logout behalten
+5. Wenn Secrets fehlen, soll die Login-Seite oder Admin-Status transparent anzeigen:
+   - ADMIN_USERNAME nicht gesetzt
+   - ADMIN_PASSWORD nicht gesetzt
+6. Keine erneute Passwort-only-Lösung
+
+B. Backend ist leer oder zeigt keine echten Datensätze
+Das ist der Hauptfehler.
+Im Admin müssen echte Datenlisten sichtbar sein, nicht nur Formulare.
+
+Erstelle oder korrigiere diese Admin-Sektionen so, dass sie jeweils eine sichtbare Liste/Tabelle mit Datensätzen zeigen:
+1. Speisekarte
+2. Getränkekarte
+3. Tageskarte
+4. Events
+5. Social Posts
+6. Galerie
+7. Einstellungen / Restaurant-Infos / Öffnungszeiten / Social Links
+8. Reservierungen
+9. SEO
+10. Branding / Logo / Bilder
+
+Für JEDE dieser Sektionen gilt:
+- vorhandene Datensätze aus DB laden
+- wenn DB leer: sinnvolle Seed-Daten einfügen
+- Liste/Tabelle anzeigen
+- Bearbeiten-Button
+- Löschen-Button
+- Status sichtbar
+- nicht nur „Neu anlegen“-Formular
+
+C. Speisen und Getränke sind im Backend nicht sichtbar
+Prüfe:
+- menu_categories
+- menu_items
+- daily_menu_items
+
+Wenn Speisen/Getränke aktuell im Frontend hardcoded sind:
+- migriere diese in die Datenbank
+- lade sie im Frontend aus der DB
+- lade sie im Backend aus der DB
+- Admin muss die Einträge wirklich sehen
+
+Speisekarten-Admin:
+Zeige pro Eintrag:
+- Bild
+- Name
+- Beschreibung
+- Preis
+- Kategorie
+- aktiv/inaktiv
+- Bearbeiten
+- Löschen
+
+Dasselbe für Getränkekarte.
+
+D. Zu viele Karten ohne Bilder
+Im Frontend fehlen bei vielen Speisen und Getränken Bilder.
+Behebe das konsequent:
+1. Prüfe alle lokalen Assets
+2. Weise möglichst vielen Menü- und Getränkeeinträgen Bilder zu
+3. Wenn für ein Item kein exaktes Bild vorhanden ist, verwende ein thematisch passendes hochwertiges vorhandenes Bild
+4. Ziel:
+   - Speisekarte nicht mehr großteils bildlos
+   - Getränkekarte nicht mehr großteils bildlos
+5. Nutze nur lokale Bilder
+6. Einheitliche Bildgrößen, saubere Zuschnitte, gute mobile Darstellung
+
+E. Social Posts fehlen im Backend
+Prüfe Tabelle und Admin-Ansicht für social_posts.
+Wenn leer:
+- lege mehrere sinnvolle Seed-Posts an, damit sofort sichtbare Datensätze vorhanden sind
+
+Zeige im Admin für jeden Post:
+- Medienvorschau
+- Caption
+- Plattformen
+- Status
+- geplant / sofort
+- Bearbeiten
+- Löschen
+
+F. Social-Verbindungen fehlen
+Die Verbindung zu Instagram, Facebook und TikTok ist aktuell nicht klar sichtbar oder fehlt.
+
+Setze im Admin eine klare Sektion „Social Media Verbindungen“ um mit Statuskarten:
+- Instagram
+- Facebook
+- TikTok
+
+Je Plattform anzeigen:
+- Verbunden
+- Nicht konfiguriert
+- Fehlerhaft
+
+Nutze und prüfe:
+- BUFFER_ACCESS_TOKEN
+- BUFFER_FACEBOOK_PROFILE_ID
+- BUFFER_INSTAGRAM_PROFILE_ID
+- BUFFER_TIKTOK_PROFILE_ID
+
+Wenn Werte fehlen:
+- deutliche Hinweisbox im Admin
+- keine falsche Erfolgsmeldung
+
+Zusätzlich:
+Im Bereich Social Posts muss klar erkennbar sein, ob Posten aktuell technisch möglich ist oder nicht.
+
+G. Kontaktseite und Footer unvollständig
+TikTok fehlt.
+Ergänze TikTok:
+- auf der Kontaktseite
+- im Footer
+- in den Einstellungen im Backend editierbar
+
+Social-Links im Backend editierbar:
+- Instagram URL
+- Facebook URL
+- TikTok URL
+
+Frontend soll diese Werte aus DB / Settings laden, nicht hardcoded.
+
+H. Einstellungen fehlen im Backend
+Baue einen echten Bereich „Einstellungen“ / „Restaurant-Infos“ mit geladenen und editierbaren Werten:
+- Restaurantname
+- Hero-Titel
+- Hero-Untertitel
+- Telefonnummer
+- E-Mail
+- Adresse
+- Öffnungszeiten
+- Instagram URL
+- Facebook URL
+- TikTok URL
+- SEO-Titel
+- SEO-Beschreibung
+
+Wichtig:
+- Werte laden
+- Werte anzeigen
+- Werte speichern
+- nicht nur leere Inputs
+
+I. Events müssen im Backend sichtbar sein
+Wenn Events im Frontend da sind, aber im Backend fehlen:
+- repariere die Datenbindung
+
+Admin-Eventliste anzeigen mit:
+- Bild
+- Titel
+- Untertitel
+- Beschreibung
+- Datum / Wochentag
+- Typ / Badge
+- aktiv/inaktiv
+- Bearbeiten
+- Löschen
+
+Wenn leer:
+Seed-Daten für:
+- Eltern-Kind-Treffen
+- Feiertags-Brunch
+- Live Musik
+
+J. Tagesgerichte im Backend sichtbar halten
+Die 3 Tagesgerichte dürfen nicht nur im Frontend existieren.
+Im Backend muss es eine echte Liste geben mit:
+- Bild
+- Titel
+- Beschreibung
+- Preis
+- Datum
+- aktiv/inaktiv
+- Bearbeiten
+- Löschen
+
+K. Keine erneute Ausweichbewegung auf Farben/Tageskarte
+Die Farbe Braun ist bereits weitgehend geklärt.
+Ab jetzt liegt der Fokus auf:
+- Admin-Daten sichtbar machen
+- Username+Passwort
+- Produkte sichtbar machen
+- Posts sichtbar machen
+- Social-Verbindungen sichtbar machen
+- TikTok ergänzen
+- Bilder konsequent ergänzen
+
+L. Technische Arbeitsanweisung
+Arbeite konkret in diesen Bereichen:
+- Auth/Login-Komponenten
+- Admin-Listen / Tabellen
+- DB-Queries / Seeds
+- API-Routen
+- Settings-Layer
+- Frontend-Datenbindung
+- Social-Connection-Status
+- Kontakt/Footer-Social-Links
+
+Wenn Tabellen fehlen, erstelle sie sauber.
+Wenn Abfragen kaputt sind, repariere sie.
+Wenn Seed-Daten fehlen, lege sie an.
+Wenn Komponenten nur Formulare ohne Daten sind, baue echte Listen.
+
+M. Verbotene Endmeldung
+Am Ende darfst du NICHT einfach schreiben:
+- „Alle Tasks erledigt“
+- „Alles läuft perfekt“
+- „Alle Seiten sehen fantastisch aus“
+
+Stattdessen musst du am Ende eine konkrete Checkliste mit IST-Zustand liefern:
+
+1. Admin-Login jetzt mit Username + Passwort: JA/NEIN
+2. Sichtbare Benutzeranzeige im Admin: JA/NEIN
+3. Speisekarten-Einträge im Backend sichtbar: Anzahl nennen
+4. Getränkekarten-Einträge im Backend sichtbar: Anzahl nennen
+5. Tagesgerichte im Backend sichtbar: Anzahl nennen
+6. Events im Backend sichtbar: Anzahl nennen
+7. Social Posts im Backend sichtbar: Anzahl nennen
+8. Einstellungen im Backend sichtbar und speicherbar: JA/NEIN
+9. TikTok auf Kontaktseite vorhanden: JA/NEIN
+10. TikTok im Footer vorhanden: JA/NEIN
+11. Social-Verbindungsstatus für Instagram/Facebook/TikTok sichtbar: JA/NEIN
+12. Mehr Bilder in Speise- und Getränkekarte ergänzt: konkret benennen
+13. Verbleibende Blocker: klar auflisten, falls vorhanden
+
+N. Qualität
+- keine TypeScript-Fehler
+- keine leeren Fake-Admin-Seiten
+- keine leeren Tabellen ohne Seed-Daten
+- keine Hardcoding-Lücken bei Social-Links
+- keine irreführende Erfolgsmeldung
+
+Ergebnis:
+Ich will nach diesem Schritt einen Admin-Bereich, der nicht leer ist, sondern echte Datenlisten zeigt; ein Login mit Username + Passwort; sichtbare und editierbare Produkte, Posts, Events, Einstellungen und Social-Links; TikTok auf Kontaktseite und Footer; und deutlich mehr Bilder bei Speisen und Getränken.
