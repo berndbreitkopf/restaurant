@@ -5,6 +5,8 @@ import dailyMenuRouter from "./dailyMenu";
 import socialPostsRouter from "./socialPosts";
 import galleryRouter from "./gallery";
 import eventsRouter from "./events";
+import siteSettingsRouter from "./siteSettings";
+import socialBufferRouter from "./socialBuffer";
 
 const router: IRouter = Router();
 
@@ -14,5 +16,7 @@ router.use(dailyMenuRouter);
 router.use(socialPostsRouter);
 router.use(galleryRouter);
 router.use(eventsRouter);
+router.use(siteSettingsRouter);
+router.use(socialBufferRouter);
 
 export default router;

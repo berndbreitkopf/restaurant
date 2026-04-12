@@ -10,6 +10,10 @@ import GetraenkekartePage from "@/pages/getraenkekarte";
 import TageskartePage from "@/pages/tageskarte";
 import GaleriePage from "@/pages/galerie";
 import AnfahrtPage from "@/pages/anfahrt";
+import KontaktPage from "@/pages/kontakt";
+import ServicePage from "@/pages/service";
+import ImpressumPage from "@/pages/impressum";
+import DatenschutzPage from "@/pages/datenschutz";
 import AdminPage from "@/pages/admin";
 import NotFound from "@/pages/not-found";
 
@@ -37,6 +41,10 @@ function Router() {
             <Route path="/tageskarte" component={TageskartePage} />
             <Route path="/galerie" component={GaleriePage} />
             <Route path="/anfahrt" component={AnfahrtPage} />
+            <Route path="/kontakt" component={KontaktPage} />
+            <Route path="/service" component={ServicePage} />
+            <Route path="/impressum" component={ImpressumPage} />
+            <Route path="/datenschutz" component={DatenschutzPage} />
             <Route component={NotFound} />
           </Switch>
         </Layout>

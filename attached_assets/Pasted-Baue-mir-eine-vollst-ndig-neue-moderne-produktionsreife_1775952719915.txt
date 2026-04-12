@@ -1,0 +1,406 @@
+Baue mir eine vollständig neue, moderne, produktionsreife Website für mein äthiopisches Café/Restaurant auf Basis von Next.js 14, TypeScript, Tailwind CSS und Supabase.
+
+Wichtiger Kontext:
+Ich bin der Eigentümer der bestehenden Website https://www.cafe-melody-bonn.de/ und darf meine eigenen Inhalte verwenden. Ich komme nur nicht mehr ins alte Backend, weil der Administrator nicht mehr verfügbar ist. Deshalb sollst du die Website technisch neu und deutlich moderner aufbauen. Die bestehende Website dient als inhaltliche und strukturelle Grundlage. Inhalte, Seiten und Grundgefühl dürfen übernommen werden. Das Design soll aber hochwertiger, moderner, sauberer, performanter und SEO-stärker werden.
+
+Ziel:
+Erstelle einen vollständigen Relaunch einer äthiopischen Restaurant-Website mit editierbarem Backend, Tageskarten-Verwaltung, Social-Media-Posting-Vorbereitung für Instagram, Facebook und TikTok, lokaler SEO für Bonn, moderner UI und äthiopischer Atmosphäre.
+
+Tech-Stack:
+- Next.js 14
+- TypeScript
+- Tailwind CSS
+- App Router
+- Supabase für Datenbank, Storage und Admin-Auth
+- saubere src-Struktur
+- responsive
+- produktionsreif
+- keine Platzhalter-Dummy-App
+- wiederverwendbare Komponenten
+- gutes Error Handling
+- saubere TypeScript-Typen
+
+Design-Vorgaben:
+Die Seite soll clean, modern, hochwertig und warm wirken.
+Die äthiopische Atmosphäre soll deutlich spürbar sein, aber nicht kitschig.
+Die Farben sollen sich an der bisherigen Website orientieren und modern interpretiert werden:
+- Primär: tiefes Grün
+- Akzent: Gold/Gelb
+- Zweiter Akzent: warmes Rot/Bordeaux
+- Flächen: Creme / Warmweiß
+- Text: Dunkelbraun / Anthrazit
+
+Designstil:
+- hochwertige Gastro-Website
+- große Hero-Sektion
+- elegante Buttons
+- moderne Karten
+- viel Weißraum
+- ruhige Typografie
+- warme Bildflächen
+- leichte kulturelle Muster oder Formelemente im Hintergrund
+- mobil perfekt
+- besser als die alte Website
+- visuell hochwertig, aber nicht überladen
+
+Bitte orientiere dich in Struktur und Inhalt an der bestehenden Website und übernimm sinngemäß:
+- Startseite / Home
+- Speisekarte
+- Getränkekarte
+- Service
+- Anfahrt
+- Neuigkeiten & Events
+- äthiopische Küche
+- hausgemachte Kuchen und Getränke
+- Kontakt
+- Öffnungszeiten
+
+Erstelle diese öffentlichen Seiten:
+1. /
+2. /speisekarte
+3. /getraenkekarte
+4. /tageskarte
+5. /service
+6. /anfahrt
+7. /galerie
+8. /kontakt
+9. /impressum
+10. /datenschutz
+
+Startseite:
+Die Startseite soll sehr hochwertig sein und mindestens enthalten:
+- starke Hero-Sektion mit hochwertigem Bildoverlay
+- Branding Café Melody Bistro
+- äthiopische Küche / Kaffee / hausgemachte Spezialitäten
+- CTA Buttons wie Speisekarte ansehen und Reservieren
+- Bereich Willkommen
+- Bereich Äthiopische Küche
+- Bereich Hausgemachte Kuchen & Getränke
+- Neuigkeiten & Events
+- Eltern-Kind-Treffen
+- Feiertags-Brunch
+- Live Musik
+- Bereich Kontakt
+- Öffnungszeiten
+- Anfahrt CTA
+- schöne Social Media Verlinkungen
+- moderne Sektionen mit starker visueller Hierarchie
+
+Speisekarte:
+- baue eine hochwertige Speisekarten-Seite
+- mit Kategorien
+- moderne Food Cards
+- Preis optisch sauber hervorgehoben
+- schöne mobile Darstellung
+- optional Badges wie vegetarisch, vegan, scharf
+- Inhalte aus der bestehenden Website übernehmen und strukturiert darstellen
+- Filter oder Tabs für Kategorien
+
+Getränkekarte:
+- eigene Seite
+- hochwertige Darstellung
+- Heißgetränke
+- Kaltgetränke
+- Biere
+- Aperitifs
+- Weine
+- traditionelle Kaffeezeremonie hervorheben
+- moderne Kartenoptik
+
+Tageskarte:
+- eigene Seite /tageskarte
+- heutige Tageskarte prominent oben
+- datumsbezogene Darstellung
+- moderne Kartenoptik
+- im Backend komplett änderbar
+- CRUD für Tagesgerichte
+- nach Datum filterbar
+- heutige Tageskarte besonders hervorheben
+
+Service:
+- eigene Seite
+- Inhalte aus der bestehenden Website sinngemäß übernehmen
+- sauber modern darstellen
+
+Anfahrt:
+- eigene Seite
+- echte Adresse, Kontaktangaben, Öffnungszeiten, Anreisemöglichkeiten
+- moderne Karten/Info-Sektion
+- Kontakt-/Reservierungsbereich
+- schöne Darstellung von Adresse, Telefon, E-Mail und Öffnungszeiten
+
+Kontakt:
+- Kontaktformular
+- Telefonnummer
+- E-Mail
+- Adresse
+- Social Links
+- optional Reservierungsanfrage-Formular
+- modernes Design
+
+Galerie:
+- Galerie-Seite
+- Bilder aus Datenbank / Storage
+- grid-basiert
+- mobil sauber
+
+Footer:
+- sauberer Footer
+- Navigation
+- Kontakt
+- Social Media
+- Impressum
+- Datenschutz
+
+Header / Navigation:
+- sticky Header
+- responsive Menü
+- klare Navigation
+- hochwertige Hover-Effekte
+- mobil sauber
+
+Backend / Admin:
+Erstelle einen vollständigen Admin-Bereich unter /admin mit Login.
+Die Admin-Oberfläche soll auf Deutsch sein und ein modernes Sidebar-Layout haben.
+
+Im Admin editierbar:
+- Startseiteninhalte
+- Speisekarte
+- Getränkekarte
+- Tageskarte
+- Events
+- Galerie
+- Öffnungszeiten
+- Kontaktangaben
+- SEO-Titel und Meta-Beschreibungen
+
+Admin-Bereiche:
+1. Dashboard
+2. Startseite bearbeiten
+3. Speisekarte verwalten
+4. Getränkekarte verwalten
+5. Tageskarte verwalten
+6. Events verwalten
+7. Galerie verwalten
+8. Kontakt / Öffnungszeiten
+9. SEO
+10. Social Media Beiträge
+
+Admin-Funktionswünsche:
+- Sidebar Layout
+- klare Formulare
+- Tabellen mit Bearbeiten/Löschen
+- Bild-Upload-Felder
+- gute Formularvalidierung
+- deutsches UI
+- saubere Lade- und Fehlerzustände
+
+Supabase:
+Nutze Supabase für Auth, DB und Storage.
+Erstelle sinnvolle Tabellen und greife sauber darauf zu.
+
+Benötigte Tabellen:
+- site_settings
+- pages
+- menu_categories
+- menu_items
+- daily_menu_items
+- events
+- gallery_images
+- social_posts
+
+Erwarte ungefähr diese Struktur:
+
+site_settings:
+- id
+- restaurant_name
+- hero_title
+- hero_subtitle
+- phone
+- email
+- address_line_1
+- address_line_2
+- opening_hours_json
+- seo_title
+- seo_description
+
+pages:
+- id
+- slug
+- title
+- intro
+- content_json
+- seo_title
+- seo_description
+
+menu_categories:
+- id
+- type (food, drink, daily)
+- name
+- sort_order
+- is_active
+
+menu_items:
+- id
+- category_id
+- title
+- description
+- price
+- image_url
+- badges_json
+- sort_order
+- is_active
+
+daily_menu_items:
+- id
+- date
+- title
+- description
+- price
+- image_url
+- badges_json
+- is_active
+
+events:
+- id
+- title
+- subtitle
+- description
+- image_url
+- event_type
+- weekday_label
+- is_active
+- sort_order
+
+gallery_images:
+- id
+- title
+- image_url
+- alt_text
+- sort_order
+- is_active
+
+social_posts:
+- id
+- caption
+- media_url
+- publish_to_facebook
+- publish_to_instagram
+- publish_to_tiktok
+- status
+- scheduled_for
+- created_at
+
+Social-Media-Backend:
+Im Admin soll es einen Bereich geben, um Beiträge zentral vorzubereiten.
+Felder:
+- Bild/Video Upload
+- Caption
+- Checkboxen für Facebook, Instagram, TikTok
+- sofort veröffentlichen oder planen
+- Speicherung in social_posts
+
+Wichtig:
+Implementiere die Architektur so, dass Social-Posting vorbereitet ist.
+Erstelle API-Route-Vorbereitung für Buffer-Integration.
+Verwende diese ENV-Namen:
+- BUFFER_ACCESS_TOKEN
+- BUFFER_FACEBOOK_PROFILE_ID
+- BUFFER_INSTAGRAM_PROFILE_ID
+- BUFFER_TIKTOK_PROFILE_ID
+
+Erstelle dafür eine saubere API-Route unter:
+src/app/api/social/post/route.ts
+
+Diese Route soll:
+- Beiträge aus dem Admin entgegennehmen
+- Plattformauswahl lesen
+- Buffer-Integration vorbereiten
+- sauberes Error Handling haben
+- JSON-Antworten liefern
+- TypeScript-sicher sein
+
+SEO:
+Die Website muss von Anfang an SEO-stark aufgebaut werden.
+
+Anforderungen:
+- pro Seite eigene Metadata
+- Title und Description
+- Open Graph
+- Twitter Cards
+- Canonical URLs
+- robots.ts
+- sitemap.ts
+- strukturierte Daten für Restaurant / LocalBusiness / CafeOrCoffeeShop
+- Local SEO für Bonn
+- performante Bilder
+- semantische HTML-Struktur
+- H1/H2/H3 logisch
+- Alt-Texte
+- interne Verlinkung
+- indexierbare Menüseiten
+
+Bitte setze lokale SEO sinnvoll für Bonn um, z. B. mit Titeln in dieser Richtung:
+- Cafe Melody Bistro Bonn – Äthiopische Küche, Kaffee & hausgemachte Spezialitäten
+- Speisekarte | Cafe Melody Bistro Bonn
+- Getränkekarte | Cafe Melody Bistro Bonn
+- Tageskarte | Cafe Melody Bistro Bonn
+- Anfahrt | Cafe Melody Bistro Bonn
+
+Strukturierte Daten:
+- Restaurant oder CafeOrCoffeeShop JSON-LD
+- Adresse
+- Öffnungszeiten
+- Kontakt
+- Cuisine: Äthiopisch
+- Bonn als Standort
+
+Wichtige Qualitätsvorgaben:
+- keine halbfertigen Platzhalterseiten
+- keine Demo-Optik
+- keine generischen Standardkomponenten ohne Anpassung
+- alles soll wie ein echter Relaunch wirken
+- hochwertiges modernes UI
+- produktionsreifer Code
+- sauber typisiert
+- deutsche Texte im Frontend
+- deutsches Backend
+- Fehler beheben statt TODO-Kommentare stehen zu lassen
+- mobil, Tablet und Desktop sauber
+- performante Komponenten
+- gute visuelle Hierarchie
+- keine ungenutzten Dateien
+- keine unsauberen Imports
+- keine TypeScript-Fehler
+
+Bitte arbeite vollständig und strukturiert:
+1. Projektstruktur anlegen
+2. Datenmodelle und Supabase-Anbindung erstellen
+3. öffentliche Seiten hochwertig bauen
+4. Admin-Bereich bauen
+5. Tageskarten-System bauen
+6. Social-Posting-Backend vorbereiten
+7. SEO vollständig einbauen
+8. Styling hochwertig finalisieren
+9. alle Routen korrekt verbinden
+10. Fehler prüfen und bereinigen
+
+Falls Inhalte der bestehenden Website nicht automatisch vollständig extrahiert werden können:
+- übernimm die bekannte Struktur und die wesentlichen Inhalte sinngemäß
+- nutze nur dort sinnvolle Dummy-Daten, wo echte Daten noch nicht vorliegen
+- die Website soll trotzdem vollständig und professionell aussehen
+
+Wichtig zum Design-Finish:
+Verbessere die Seite bewusst über den alten Stand hinaus:
+- deutlich hochwertigere Hero-Sektion
+- bessere Event-Karten
+- bessere Food Cards
+- stärkere Typografie
+- bessere Abstände
+- edlere Buttons
+- bessere Kontakt- und Öffnungszeiten-Sektion
+- bessere mobile Navigation
+- insgesamt moderner, cleaner und hochwertiger
+
+Ergebnis:
+Ich will am Ende eine vollständige, moderne, editierbare, SEO-optimierte Restaurant-Website mit äthiopischer Atmosphäre, Tageskartenverwaltung und vorbereitetem Multi-Platform-Social-Posting-Backend.

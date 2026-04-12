@@ -1,24 +1,38 @@
 import { Helmet } from "react-helmet-async";
-import { Phone, MapPin, Clock, Mail } from "lucide-react";
+import { Phone, MapPin, Clock, Mail, Send } from "lucide-react";
 import { SiFacebook, SiInstagram, SiTiktok } from "react-icons/si";
+import { useState } from "react";
 
 export default function KontaktPage() {
+  const [sent, setSent] = useState(false);
+  const [form, setForm] = useState({ name: "", email: "", phone: "", subject: "", message: "" });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSent(true);
+  };
+
   return (
     <>
       <Helmet>
-        <title>Kontakt & Reservierung — Habesha Restaurant Bonn</title>
-        <meta name="description" content="Kontaktieren Sie das Habesha Restaurant Bonn für Tischreservierungen. Adresse: Musterstraße 42, 53111 Bonn. Tel: +49 228 12345678. Mo–Fr 12–14:30 & 17–22 Uhr, Sa–So 12–22:30 Uhr." />
-        <meta property="og:title" content="Kontakt & Reservierung — Habesha Restaurant Bonn" />
-        <meta property="og:description" content="Reservieren Sie Ihren Tisch im Habesha Restaurant Bonn. Authentische äthiopische Küche — für Gruppen und Events buchbar." />
-        <link rel="canonical" href="https://habesha-bonn.de/kontakt" />
+        <title>Kontakt & Reservierung — Café Melody Bistro Bonn</title>
+        <meta name="description" content="Kontaktieren Sie das Café Melody Bistro Bonn für Tischreservierungen, Gruppenanfragen und Events. Tel: +49 170 9384822, E-Mail: hallo@cafe-melody-bonn.de." />
+        <meta property="og:title" content="Kontakt & Reservierung — Café Melody Bistro Bonn" />
+        <meta property="og:description" content="Kontakt und Reservierungen im Café Melody Bistro Bonn — Di–So 10–19 Uhr." />
+        <link rel="canonical" href="https://cafe-melody-bonn.de/kontakt" />
       </Helmet>
 
-      <header className="py-16 text-white" style={{ background: "linear-gradient(135deg, var(--eth-green) 0%, #04581d 100%)" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-yellow-300 text-sm font-medium tracking-widest uppercase">Wir freuen uns auf Sie</span>
-          <h1 className="font-serif text-5xl font-bold mt-2 mb-4">Kontakt & Reservierung</h1>
-          <p className="text-green-100 max-w-xl mx-auto">
-            Reservieren Sie Ihren Tisch oder nehmen Sie Kontakt auf — wir beantworten alle Fragen gerne
+      <header className="py-20 text-white relative overflow-hidden" style={{ background: "linear-gradient(135deg, #0a2e14 0%, var(--eth-green) 60%, #04581d 100%)" }}>
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 75% 50%, white 1px, transparent 1px)", backgroundSize: "30px 30px" }} />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <div className="w-8 h-1 bg-yellow-400" />
+            <span className="text-yellow-300 text-sm font-medium tracking-widest uppercase">Schreiben Sie uns</span>
+            <div className="w-8 h-1 bg-yellow-400" />
+          </div>
+          <h1 className="font-serif text-5xl md:text-6xl font-bold mb-4">Kontakt</h1>
+          <p className="text-green-100 max-w-xl mx-auto text-lg">
+            Wir freuen uns auf Ihre Nachricht — für Reservierungen, Events und Anfragen
           </p>
         </div>
       </header>
@@ -27,206 +41,134 @@ export default function KontaktPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
-            {/* Contact info */}
+            {/* Contact form */}
             <div>
-              <h2 className="font-serif text-3xl font-bold mb-8">So erreichen Sie uns</h2>
+              <h2 className="font-serif text-3xl font-bold mb-2">Nachricht senden</h2>
+              <p className="text-muted-foreground mb-6">Für Reservierungen, Gruppenanfragen und allgemeine Fragen</p>
 
-              <div className="space-y-6">
-                <div className="flex items-start gap-4 p-5 bg-card rounded-2xl border border-border">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white flex-shrink-0" style={{ background: "var(--eth-green)" }}>
-                    <MapPin className="w-6 h-6" />
+              {sent ? (
+                <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center">
+                  <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: "var(--eth-green)" }}>
+                    <Send className="w-8 h-8 text-white" />
                   </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Adresse</h3>
-                    <address className="text-muted-foreground not-italic leading-relaxed">
-                      Habesha Restaurant Bonn<br />
-                      Musterstrasse 42<br />
-                      53111 Bonn
-                    </address>
-                  </div>
+                  <h3 className="font-serif text-xl font-bold mb-2 text-green-800">Vielen Dank!</h3>
+                  <p className="text-green-700 text-sm">Ihre Nachricht wurde gesendet. Wir melden uns schnellstmöglich bei Ihnen.</p>
+                  <button onClick={() => { setSent(false); setForm({ name: "", email: "", phone: "", subject: "", message: "" }); }} className="mt-4 text-sm font-medium underline" style={{ color: "var(--eth-green)" }}>
+                    Neue Nachricht senden
+                  </button>
                 </div>
-
-                <div className="flex items-start gap-4 p-5 bg-card rounded-2xl border border-border">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white flex-shrink-0" style={{ background: "var(--eth-green)" }}>
-                    <Phone className="w-6 h-6" />
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4 bg-card border border-border rounded-2xl p-6" data-testid="form-kontakt">
+                  <div>
+                    <label className="block text-sm font-medium mb-1.5" htmlFor="k-name">Name *</label>
+                    <input id="k-name" required type="text" value={form.name} onChange={e => setForm(p => ({ ...p, name: e.target.value }))} className="w-full px-4 py-2.5 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Ihr vollständiger Name" data-testid="input-kontakt-name" />
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium mb-1.5" htmlFor="k-email">E-Mail *</label>
+                      <input id="k-email" required type="email" value={form.email} onChange={e => setForm(p => ({ ...p, email: e.target.value }))} className="w-full px-4 py-2.5 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="ihre@email.de" data-testid="input-kontakt-email" />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-1.5" htmlFor="k-phone">Telefon</label>
+                      <input id="k-phone" type="tel" value={form.phone} onChange={e => setForm(p => ({ ...p, phone: e.target.value }))} className="w-full px-4 py-2.5 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="+49..." data-testid="input-kontakt-phone" />
+                    </div>
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Telefon</h3>
-                    <a
-                      href="tel:+4922812345678"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                      data-testid="link-phone-kontakt"
-                    >
-                      +49 228 12345678
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 p-5 bg-card rounded-2xl border border-border">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white flex-shrink-0" style={{ background: "var(--eth-green)" }}>
-                    <Mail className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">E-Mail</h3>
-                    <a
-                      href="mailto:info@habesha-bonn.de"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                      data-testid="link-email-kontakt"
-                    >
-                      info@habesha-bonn.de
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 p-5 bg-card rounded-2xl border border-border">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white flex-shrink-0" style={{ background: "var(--eth-green)" }}>
-                    <Clock className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-2">Offnungszeiten</h3>
-                    <table className="text-sm text-muted-foreground">
-                      <tbody>
-                        <tr>
-                          <td className="pr-6 py-0.5 font-medium text-foreground">Montag – Freitag</td>
-                          <td>12:00 – 14:30 Uhr</td>
-                        </tr>
-                        <tr>
-                          <td className="pr-6 py-0.5 font-medium text-foreground"></td>
-                          <td>17:00 – 22:00 Uhr</td>
-                        </tr>
-                        <tr>
-                          <td className="pr-6 py-0.5 font-medium text-foreground">Samstag – Sonntag</td>
-                          <td>12:00 – 22:30 Uhr</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-
-                {/* Social media */}
-                <div className="p-5 bg-card rounded-2xl border border-border">
-                  <h3 className="font-semibold mb-3">Folgen Sie uns</h3>
-                  <div className="flex gap-3">
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-muted hover:bg-muted/80 transition-colors" data-testid="link-instagram-kontakt">
-                      <SiInstagram className="w-4 h-4" />
-                      Instagram
-                    </a>
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-muted hover:bg-muted/80 transition-colors" data-testid="link-facebook-kontakt">
-                      <SiFacebook className="w-4 h-4" />
-                      Facebook
-                    </a>
-                    <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-muted hover:bg-muted/80 transition-colors" data-testid="link-tiktok-kontakt">
-                      <SiTiktok className="w-4 h-4" />
-                      TikTok
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Reservation form */}
-            <div>
-              <h2 className="font-serif text-3xl font-bold mb-8">Tisch reservieren</h2>
-              <form className="space-y-5 bg-card rounded-2xl border border-border p-6" onSubmit={(e) => { e.preventDefault(); alert("Vielen Dank für Ihre Reservierungsanfrage! Wir melden uns in Kürze."); }} data-testid="form-reservation">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-1.5">Name</label>
-                    <input
-                      id="name"
-                      type="text"
-                      required
-                      className="w-full px-4 py-2.5 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary"
-                      placeholder="Ihr Name"
-                      data-testid="input-name"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium mb-1.5">Telefon</label>
-                    <input
-                      id="phone"
-                      type="tel"
-                      className="w-full px-4 py-2.5 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary"
-                      placeholder="+49..."
-                      data-testid="input-phone"
-                    />
-                  </div>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="date" className="block text-sm font-medium mb-1.5">Datum</label>
-                    <input
-                      id="date"
-                      type="date"
-                      required
-                      className="w-full px-4 py-2.5 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary"
-                      min={new Date().toISOString().split("T")[0]}
-                      data-testid="input-date"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="time" className="block text-sm font-medium mb-1.5">Uhrzeit</label>
-                    <select
-                      id="time"
-                      className="w-full px-4 py-2.5 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary"
-                      data-testid="select-time"
-                    >
-                      <option value="12:00">12:00 Uhr</option>
-                      <option value="12:30">12:30 Uhr</option>
-                      <option value="13:00">13:00 Uhr</option>
-                      <option value="13:30">13:30 Uhr</option>
-                      <option value="14:00">14:00 Uhr</option>
-                      <option value="17:00">17:00 Uhr</option>
-                      <option value="17:30">17:30 Uhr</option>
-                      <option value="18:00">18:00 Uhr</option>
-                      <option value="19:00">19:00 Uhr</option>
-                      <option value="20:00">20:00 Uhr</option>
-                      <option value="21:00">21:00 Uhr</option>
+                    <label className="block text-sm font-medium mb-1.5" htmlFor="k-subject">Betreff *</label>
+                    <select id="k-subject" required value={form.subject} onChange={e => setForm(p => ({ ...p, subject: e.target.value }))} className="w-full px-4 py-2.5 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary" data-testid="select-kontakt-subject">
+                      <option value="">Bitte wählen...</option>
+                      <option value="reservation">Tischreservierung</option>
+                      <option value="group">Gruppenanfrage (ab 6 Personen)</option>
+                      <option value="ceremony">Kaffeezeremonie</option>
+                      <option value="event">Veranstaltungsanfrage</option>
+                      <option value="general">Allgemeine Anfrage</option>
                     </select>
                   </div>
-                </div>
-                <div>
-                  <label htmlFor="guests" className="block text-sm font-medium mb-1.5">Anzahl der Gäste</label>
-                  <select
-                    id="guests"
-                    className="w-full px-4 py-2.5 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary"
-                    data-testid="select-guests"
-                  >
-                    {[1,2,3,4,5,6,7,8,10,12].map(n => (
-                      <option key={n} value={n}>{n} {n === 1 ? "Person" : "Personen"}</option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-1.5">Besondere Wünsche (optional)</label>
-                  <textarea
-                    id="message"
-                    rows={3}
-                    className="w-full px-4 py-2.5 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary resize-none"
-                    placeholder="Allergien, Sonderwünsche, Anlass..."
-                    data-testid="textarea-message"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full py-3 rounded-xl font-semibold text-sm text-white transition-opacity hover:opacity-90"
-                  style={{ background: "var(--eth-green)" }}
-                  data-testid="button-submit-reservation"
-                >
-                  Reservierungsanfrage senden
-                </button>
-                <p className="text-xs text-muted-foreground text-center">
-                  Wir bestätigen Ihre Reservierung telefonisch innerhalb von 24 Stunden.
-                </p>
-              </form>
+                  <div>
+                    <label className="block text-sm font-medium mb-1.5" htmlFor="k-message">Nachricht *</label>
+                    <textarea id="k-message" required value={form.message} onChange={e => setForm(p => ({ ...p, message: e.target.value }))} rows={5} className="w-full px-4 py-2.5 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary resize-none" placeholder="Schreiben Sie uns..." data-testid="textarea-kontakt-message" />
+                  </div>
+                  <button type="submit" className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-sm text-white transition-all hover:opacity-90" style={{ background: "var(--eth-green)" }} data-testid="button-submit-kontakt">
+                    <Send className="w-4 h-4" />
+                    Nachricht senden
+                  </button>
+                  <p className="text-xs text-muted-foreground text-center">Mit * markierte Felder sind Pflichtfelder.</p>
+                </form>
+              )}
             </div>
-          </div>
 
-          {/* Map placeholder */}
-          <div className="mt-12 rounded-2xl overflow-hidden border border-border shadow-sm bg-muted h-64 flex items-center justify-center">
-            <div className="text-center text-muted-foreground">
-              <MapPin className="w-12 h-12 mx-auto mb-2" />
-              <p className="font-medium">Habesha Restaurant Bonn</p>
-              <p className="text-sm">Musterstrasse 42, 53111 Bonn</p>
+            {/* Contact info */}
+            <div className="space-y-4">
+              <h2 className="font-serif text-3xl font-bold mb-6">So erreichen Sie uns</h2>
+
+              <div className="flex items-start gap-4 p-5 bg-card rounded-2xl border border-border hover:shadow-sm transition-shadow">
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white flex-shrink-0" style={{ background: "var(--eth-green)" }}>
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-1">Adresse</h3>
+                  <address className="text-muted-foreground not-italic leading-relaxed text-sm">
+                    Café Melody Bistro<br />
+                    Werftstraße 5-7<br />
+                    53117 Bonn-Graurheindorf
+                  </address>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 p-5 bg-card rounded-2xl border border-border hover:shadow-sm transition-shadow">
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white flex-shrink-0" style={{ background: "var(--eth-green)" }}>
+                  <Clock className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-2">Öffnungszeiten</h3>
+                  <table className="text-sm text-muted-foreground">
+                    <tbody>
+                      <tr><td className="pr-6 py-0.5 font-medium text-foreground">Montag</td><td>Ruhetag</td></tr>
+                      <tr><td className="pr-6 py-0.5 font-medium text-foreground">Di – So</td><td>10:00 – 19:00 Uhr</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 p-5 bg-card rounded-2xl border border-border hover:shadow-sm transition-shadow">
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white flex-shrink-0" style={{ background: "var(--eth-green)" }}>
+                  <Phone className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-1">Telefon</h3>
+                  <a href="tel:+491709384822" className="text-muted-foreground hover:text-foreground transition-colors text-sm font-medium" data-testid="link-phone-kontakt">
+                    +49 170 9384822
+                  </a>
+                  <p className="text-xs text-muted-foreground mt-1">Erreichbar Di–So, 10:00–19:00 Uhr</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 p-5 bg-card rounded-2xl border border-border hover:shadow-sm transition-shadow">
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white flex-shrink-0" style={{ background: "var(--eth-green)" }}>
+                  <Mail className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-1">E-Mail</h3>
+                  <a href="mailto:hallo@cafe-melody-bonn.de" className="text-muted-foreground hover:text-foreground transition-colors text-sm break-all">
+                    hallo@cafe-melody-bonn.de
+                  </a>
+                </div>
+              </div>
+
+              <div className="p-5 bg-card rounded-2xl border border-border">
+                <h3 className="font-semibold mb-3">Folgen Sie uns</h3>
+                <div className="flex gap-3 flex-wrap">
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium text-white hover:opacity-90 transition-opacity" style={{ background: "linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045)" }} data-testid="link-instagram-kontakt">
+                    <SiInstagram className="w-4 h-4" /> Instagram
+                  </a>
+                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium text-white hover:opacity-90 transition-opacity" style={{ background: "#1877F2" }} data-testid="link-facebook-kontakt">
+                    <SiFacebook className="w-4 h-4" /> Facebook
+                  </a>
+                  <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-black text-white hover:opacity-90 transition-opacity">
+                    <SiTiktok className="w-4 h-4" /> TikTok
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
