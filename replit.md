@@ -39,7 +39,7 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - **Package manager**: pnpm
 - **TypeScript version**: 5.9
 - **API framework**: Express 5
-- **Database**: PostgreSQL + Drizzle ORM
+- **Database**: Supabase PostgreSQL (Transaction Pooler) + Drizzle ORM, SSL aktiviert in `lib/db/src/index.ts`
 - **Validation**: Zod (`zod/v4`), `drizzle-zod`
 - **API codegen**: Orval (from OpenAPI spec)
 - **Build**: esbuild (CJS bundle)
@@ -95,6 +95,7 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 
 Required:
 - `ADMIN_PASSWORD` — admin login password (set as Replit Secret)
+- `SUPABASE_DATABASE_URL` — Supabase Postgres connection string (Transaction Pooler, port 6543). Falls nicht gesetzt, fällt der Code auf `DATABASE_URL` zurück. SSL wird automatisch aktiviert für `*.supabase.com`.
 
 For Buffer Social Media API (optional):
 - `BUFFER_ACCESS_TOKEN`
